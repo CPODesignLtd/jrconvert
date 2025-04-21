@@ -1,0 +1,47 @@
+@model IEnumerable<JrvNetMigration.Models.Route>
+
+@{
+    ViewData["Title"] = "Manage Routes";
+}
+
+<div class="container">
+    <h2>Manage Routes</h2>
+    
+    <p>
+        <a asp-action="CreateRoute" class="btn btn-primary">Create New Route</a>
+    </p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.City)</th>
+                <th>@Html.DisplayNameFor(model => model.RouteNumber)</th>
+                <th>@Html.DisplayNameFor(model => model.TransportType)</th>
+                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                <th>@Html.DisplayNameFor(model => model.IsActive)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.City)</td>
+                    <td>@Html.DisplayFor(modelItem => item.RouteNumber)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TransportType)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
+                    <td>
+                        <a asp-action="EditRoute" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-action="DeleteRoute" asp-route-id="@item.Id" class="btn btn-sm btn-danger" 
+                           onclick="return confirm('Are you sure you want to delete this route?');">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="mt-3">
+        <a asp-action="Index" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</div>

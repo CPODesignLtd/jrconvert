@@ -1,0 +1,72 @@
+@model JrvNetMigration.Models.ViewModels.ScheduleViewModel
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Create Schedule" : "Edit Schedule";
+}
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+
+    <form asp-action="@(Model.Id == 0 ? "CreateSchedule" : "EditSchedule")" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group mb-3">
+            <label asp-for="RouteId" class="control-label"></label>
+            <select asp-for="RouteId" class="form-control">
+                <option value="">-- Select Route --</option>
+                @foreach (var route in Model.AvailableRoutes)
+                {
+                    <option value="@route.Id">@route.City - @route.RouteNumber (@route.TransportType)</option>
+                }
+            </select>
+            <span asp-validation-for="RouteId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="StationId" class="control-label"></label>
+            <select asp-for="StationId" class="form-control">
+                <option value="">-- Select Station --</option>
+                @foreach (var station in Model.AvailableStations)
+                {
+                    <option value="@station.Id">@station.City - @station.Name</option>
+                }
+            </select>
+            <span asp-validation-for="StationId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="StopOrder" class="control-label"></label>
+            <input asp-for="StopOrder" class="form-control" type="number" min="1" />
+            <span asp-validation-for="StopOrder" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="ArrivalTime" class="control-label"></label>
+            <input asp-for="ArrivalTime" class="form-control" type="time" />
+            <span asp-validation-for="ArrivalTime" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="DepartureTime" class="control-label"></label>
+            <input asp-for="DepartureTime" class="form-control" type="time" />
+            <span asp-validation-for="DepartureTime" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <div class="form-check">
+                <input asp-for="IsWeekday" class="form-check-input" />
+                <label asp-for="IsWeekday" class="form-check-label"></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-action="Schedules" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

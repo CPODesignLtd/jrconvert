@@ -1,0 +1,53 @@
+.route-select {
+  margin-bottom: 20px;
+}
+
+.schedule-container {
+  margin-top: 30px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.schedule-table th {
+  background-color: #f8f9fa;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.schedule-table td {
+  padding: 12px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.schedule-type-selector {
+  margin-bottom: 20px;
+}
+
+.station-info {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.transport-type-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.route-number {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}

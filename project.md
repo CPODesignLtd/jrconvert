@@ -23,6 +23,7 @@ The goal is a one-to-one conversion with a local Dockerized development environm
 - Reuse existing SQL insert scripts for populating initial data in the MySQL instance.
 - Implement unit tests to ensure code reliability and maintainability.
 - Provide documentation for setup, development, and testing.
+- use local mysql database based on mysql #https://hub.docker.com/r/mysql/mysql-server/
 
 ---
 

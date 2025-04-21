@@ -1,22 +1,140 @@
+@model IEnumerable<JrvNetMigration.Models.Route>
+
 @{
-    ViewData["Title"] = "Volani";
+    ViewData["Title"] = "Transit Routes";
 }
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <title>@ViewData["Title"]</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script type="text/javascript">
-        // JavaScript logic for processing packet data
-        function processPacketData() {
-            console.log("Processing packet data...");
-            // Add your JavaScript logic here
-        }
-    </script>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/transit.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
-    <h1>Volani Page</h1>
-    <button onclick="processPacketData()">Process Packet Data</button>
+    <div class="container">
+        <h2>Transit Routes</h2>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Select Route</h3>
+                <select id="routeSelect" class="form-control">
+                    <option value="">-- Select Route --</option>
+                    @foreach (var route in Model)
+                    {
+                        <option value="@route.Id">@route.City - @route.RouteNumber (@route.TransportType)</option>
+                    }
+                </select>
+            </div>
+            
+            <div class="col-md-4">
+                <h3>Select Station</h3>
+                <select id="stationSelect" class="form-control" disabled>
+                    <option value="">-- Select Station --</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Schedule Type</h3>
+                <select id="scheduleType" class="form-control">
+                    <option value="true">Weekday</option>
+                    <option value="false">Weekend</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <h3>Schedule</h3>
+                <div id="scheduleError" class="alert alert-danger" style="display: none;"></div>
+                <table id="scheduleTable" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Stop</th>
+                            <th>Station</th>
+                            <th>Arrival</th>
+                            <th>Departure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const errorDiv = $('#scheduleError');
+            
+            $('#routeSelect').change(function() {
+                const routeId = $(this).val();
+                const stationSelect = $('#stationSelect');
+                
+                stationSelect.prop('disabled', true);
+                stationSelect.empty();
+                stationSelect.append('<option value="">-- Select Station --</option>');
+                errorDiv.hide();
+                
+                if (!routeId) return;
+
+                $.ajax({
+                    url: `/Volani/GetStations/${routeId}`,
+                    method: 'GET',
+                    success: function(stations) {
+                        stations.forEach(function(station) {
+                            stationSelect.append(`<option value="${station.id}">${station.name}</option>`);
+                        });
+                        stationSelect.prop('disabled', false);
+                    },
+                    error: function(xhr, status, error) {
+                        errorDiv.text('Failed to load stations. Please try again.').show();
+                        console.error('Error loading stations:', error);
+                    }
+                });
+            });
+
+            function loadSchedule() {
+                const routeId = $('#routeSelect').val();
+                const stationId = $('#stationSelect').val();
+                const isWeekday = $('#scheduleType').val() === 'true';
+                const tbody = $('#scheduleTable tbody');
+
+                tbody.empty();
+                errorDiv.hide();
+
+                if (!routeId || !stationId) return;
+
+                $.ajax({
+                    url: `/Volani/GetSchedule/${routeId}/${stationId}/${isWeekday}`,
+                    method: 'GET',
+                    success: function(schedules) {
+                        if (schedules && schedules.length > 0) {
+                            schedules.forEach(function(schedule) {
+                                tbody.append(`
+                                    <tr>
+                                        <td>${schedule.stopOrder}</td>
+                                        <td>${schedule.station.name}</td>
+                                        <td>${schedule.arrivalTime}</td>
+                                        <td>${schedule.departureTime}</td>
+                                    </tr>
+                                `);
+                            });
+                        } else {
+                            tbody.append('<tr><td colspan="4" class="text-center">No schedule found for the selected options.</td></tr>');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        errorDiv.text('Failed to load schedule. Please try again.').show();
+                        console.error('Error loading schedule:', error);
+                    }
+                });
+            }
+
+            $('#stationSelect, #scheduleType').change(loadSchedule);
+        });
+    </script>
 </body>
 </html>

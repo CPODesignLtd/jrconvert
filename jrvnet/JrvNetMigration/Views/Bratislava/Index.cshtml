@@ -1,3 +1,4 @@
+@model IEnumerable<Station>
 @{
     ViewData["Title"] = "Bratislava";
     var administrator = (bool)ViewData["Administrator"];
@@ -10,18 +11,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>@ViewData["Title"]</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
-    <link rel="stylesheet" type="text/css" href="css/JRBlava/menuBlava.css" />
-    <link rel="stylesheet" type="text/css" href="css/JRBlava/JRBlava.css" />
-    <link rel="stylesheet" type="text/css" href="css/JRBlava/kalendarBlava.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/css/JRBlava/menuBlava.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/JRBlava/JRBlava.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/JRBlava/kalendarBlava.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
     <script type="text/javascript">
         var vlocation = 6;
-        var vpacket = null;
+        $(document).ready(function () {
+            $("#naseptavacText").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Bratislava/Search",
+                        type: "GET",
+                        data: { term: request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                minLength: 2
+            });
+        });
     </script>
-    <script type="text/javascript" charset="windows-1250" src="//www.mhdspoje.cz/jrw50/js/JRclass50.js"></script>
-    <script type="text/javascript" src="//www.mhdspoje.cz/jrw50/js/kalendar.js"></script>
 
     <div id="secondary-nav">
         <ul>
@@ -40,27 +56,36 @@
         </ul>
     </div>
 
-    @if (page == 1)
-    {
-        <div id="content_1" class="content_div">
-            <table>
+    <div class="container">
+        <table class="mainTable">
+            <tr>
+                <td>
+                    <div class="stationSearch">
+                        <label for="naseptavacText">Hľadať stanicu:</label>
+                        <input type="text" id="naseptavacText" class="vyber" style="width:300px" autocomplete="off" />
+                    </div>
+                </td>
+            </tr>
+            @if (Model != null && Model.Any())
+            {
                 <tr>
-                    <td><label for="select_linka" class="label">Výběr linky :</label></td>
                     <td>
-                        <div class="div_vyber">
-                            <select class="vyber" id="select_linka"></select>
-                        </div>
-                    </td>
-                    <td><label class="label">Výběr zastávky :</label></td>
-                    <td>
-                        <div class="div_vyber">
-                            <input type="text" id="naseptavacText" class="vyber" style="width:300px" autocomplete="off" />
-                            <img src="//www.mhdspoje.cz/jrw50/image/combodown.png" style="padding-left: 5px;" width="7px" height="7px" />
+                        <div class="stationList">
+                            @foreach (var station in Model)
+                            {
+                                <div class="station-item">
+                                    <h3>@station.Name</h3>
+                                    @if (!string.IsNullOrEmpty(station.Description))
+                                    {
+                                        <p>@station.Description</p>
+                                    }
+                                </div>
+                            }
                         </div>
                     </td>
                 </tr>
-            </table>
-        </div>
-    }
+            }
+        </table>
+    </div>
 </body>
 </html>

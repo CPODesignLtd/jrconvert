@@ -1,0 +1,61 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-4">
+    <h2>Admin Dashboard</h2>
+    
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Routes Management</h5>
+                    <p class="card-text">Manage transportation routes, including adding, editing, and removing routes.</p>
+                    <a asp-action="Routes" class="btn btn-primary">Manage Routes</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Stations Management</h5>
+                    <p class="card-text">Manage stations, including their locations and details.</p>
+                    <a asp-action="Stations" class="btn btn-primary">Manage Stations</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Schedules Management</h5>
+                    <p class="card-text">Manage transportation schedules and timetables.</p>
+                    <a asp-action="Schedules" class="btn btn-primary">Manage Schedules</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Data Import</h5>
+                    <p class="card-text">Upload and import data files to update the system.</p>
+                    <a asp-action="Upload" class="btn btn-primary">Upload Data</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Change Location</h5>
+                    <p class="card-text">Change your current working location.</p>
+                    <a asp-action="SelectLocation" class="btn btn-primary">Change Location</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
