@@ -1,0 +1,148 @@
+.ram_kalendar {
+  font-family: sans-serif;
+  font-size: 12px;
+  display: inline-block;
+  border-radius: 5px 5px 5px 5px; 
+  border-width: 1px; 
+  border-style: solid; 
+  border-color: #000000; 
+  text-align: center;
+  background-color: rgb(255, 255, 204);
+  padding: 10px 10px 10px 10px;
+}
+
+.div_ram_den_old {
+  display: inline-block;
+  border-radius: 5px 5px 5px 5px; 
+  border-width: 1px; 
+  border-style: solid; 
+  border-color: #000000; 
+  text-align: center;
+  background-color: seashell;
+  padding: 10px 10px 10px 10px;
+}
+
+.div_ram_den {
+  
+}
+
+.table_kalendar {
+  border-collapse: collapse;
+  border: none
+}
+
+.table_dny {
+  border-collapse: collapse;
+  border: none;
+  margin: 10px 0px 0px 0px;
+}
+
+.td_dny {
+}
+
+.days {
+  min-width: 24px;
+  padding: 7px 5px 7px 5px;
+}
+
+.days:hover {
+  min-width: 20px;
+  padding: 7px 5px 7px 5px;
+  cursor: pointer;
+  background-color: #ffff66;
+}
+
+.today {
+  min-width: 20px;
+  padding: 7px 5px 7px 5px;
+  background-color: #DB7F85;
+}
+
+.today:hover {
+  min-width: 20px;
+  padding: 7px 5px 7px 5px;
+  cursor: pointer;
+  background-color: #ffff66;
+}
+
+.div_header {
+  display: block;
+  border-radius: 5px 5px 5px 5px; 
+  border-width: 1px; 
+  border-style: solid; 
+  border-color: #000000; 
+  text-align: center;
+  background-color: seashell;
+  min-height: 16px;
+  padding: 3px 3px 3px 3px;
+}
+
+.div_prev {
+  display: block;
+  border-radius: 5px 5px 5px 5px; 
+  border-width: 1px; 
+  border-style: solid; 
+  border-color: #000000; 
+  text-align: center;
+  background-color: seashell;
+  background-image: url(../image/btn_previous.png);
+  background-repeat: no-repeat;   
+  height: 16px;
+  width: 16px;
+  padding: 3px 3px 3px 3px;
+  background-position: center center;
+}
+
+.div_prev:hover {
+  display: block;
+  border-radius: 5px 5px 5px 5px; 
+  border-width: 1px; 
+  border-style: solid; 
+  border-color: #000000; 
+  text-align: center;
+  background-color: seashell;
+  background-image: url(../image/btn_previousover.png);
+  background-repeat: no-repeat;   
+  height: 16px;
+  width: 16px;
+  padding: 3px 3px 3px 3px;
+  background-position: center center;
+}
+
+.div_next {
+  display: block;
+  border-radius: 5px 5px 5px 5px; 
+  border-width: 1px; 
+  border-style: solid; 
+  border-color: #000000; 
+  text-align: center;
+  background-color: seashell;
+  background-image: url(../image/btn_next.png);
+  background-repeat: no-repeat;   
+  height: 16px;
+  width: 16px;
+  background-position: center center;
+  padding: 3px 3px 3px 3px;
+}
+
+.div_next:hover {
+  display: block;
+  border-radius: 5px 5px 5px 5px; 
+  border-width: 1px; 
+  border-style: solid; 
+  border-color: #000000; 
+  text-align: center;
+  background-color: seashell;
+  background-image: url(../image/btn_nextover.png);
+  background-repeat: no-repeat;   
+  height: 16px;
+  width: 16px;
+  background-position: center center;
+  padding: 3px 3px 3px 3px;
+}
+
+.vyber_kalendar {
+  width: 85px; 
+  border: none;
+  background-color: seashell;
+}

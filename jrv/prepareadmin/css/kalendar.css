@@ -1,0 +1,172 @@
+.ram_kalendar {
+  font-family: sans-serif;
+  font-size: 12px;
+  display: inline-block;
+  border-radius: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000000;
+  text-align: center;
+  background-color: white;
+  padding: 3px 3px 3px 3px;
+  margin: 10px 10px 10px 10px;
+  box-shadow:10px 10px 5px gray;
+}
+
+.div_ram_den_old {
+  display: inline-block;
+  border-radius: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000000;
+  text-align: center;
+  background-color: #E0E9FF;
+  padding: 10px 10px 10px 10px;
+}
+
+.div_ram_den {
+  background-color: #3F7A9A;/*#4E7AFF;*/
+  color: white;
+}
+
+.div_ram_den a {
+  background-color: #3F7A9A;/*#4E7AFF;*/
+  color: white;
+}
+
+.table_kalendar {
+  border-collapse: separate;
+  border-spacing: 2px;
+  border: none;
+  background-color: #E0E9FF;
+  text-align: center;
+}
+
+.table_dny {
+  border-collapse: separate;
+  border-spacing: 2px;
+  border: none;
+  border-color: white;
+  background-color: white;
+  margin: 10px 0px 0px 0px;
+}
+
+.td_dny {
+  background-color: #3F7A9A;/*#4E7AFF;*/
+  color: white;
+}
+
+.table_dny td {
+  background-color: #E0E9FF;
+}
+
+.days {
+  min-width: 24px;
+  padding: 7px 5px 7px 5px;
+  background-color: #E0E9FF;
+}
+
+.days:hover {
+  min-width: 20px;
+  padding: 7px 5px 7px 5px;
+  cursor: pointer;
+  background-color: #ffff66;
+}
+
+td .today{
+  min-width: 20px;
+  padding: 7px 5px 7px 5px;
+  background-color: #B53929;/*#DB7F85;*/
+  color: #ffffff;
+}
+
+.today:hover {
+  min-width: 20px;
+  padding: 7px 5px 7px 5px;
+  cursor: pointer;
+  background-color: #ffff66;
+}
+
+.div_header {
+  display: block;
+  border-radius: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000000;
+  text-align: center;
+  background-color: #3F7A9A;/*#4E7AFF;*/
+  min-height: 16px;
+  padding: 3px 3px 3px 3px;
+  color: white;
+}
+
+.div_prev {
+  display: block;
+  border-radius: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000000;
+  text-align: center;
+  background-color: #3F7A9A;/*#4E7AFF;*/
+  background-image: url(image/sipkaleft.png);
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  padding: 6px 6px 6px 6px;
+  background-position: center center;
+}
+
+.div_prev:hover {
+  display: block;
+  border-radius: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000000;
+  text-align: center;
+  background-color: #E0E9FF;
+  background-image: url(image/sipkaleft.png);
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  padding: 6px 6px 6px 6px;
+  background-position: center center;
+}
+
+.div_next {
+  display: block;
+  border-radius: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000000;
+  text-align: center;
+  background-color: #3F7A9A;/*#4E7AFF;*/
+  background-image: url(image/sipkaright.png);
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  background-position: center center;
+  padding: 6px 6px 6px 6px;
+}
+
+.div_next:hover {
+  display: block;
+  border-radius: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000000;
+  text-align: center;
+  background-color: #E0E9FF;
+  background-image: url(image/sipkaright.png);
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  background-position: center center;
+  padding: 6px 6px 6px 6px;
+}
+
+.vyber_kalendar {
+  width: 85px;
+  border: none;
+  background-color: #3F7A9A;/*#4E7AFF;*/
+  color: white;
+}

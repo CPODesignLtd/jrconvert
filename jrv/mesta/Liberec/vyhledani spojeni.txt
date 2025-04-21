@@ -1,0 +1,4 @@
+<tr>
+        <th nowrap bordercolor="#0099FF" bgcolor="#000099"><font size="1" face="Arial, Helvetica, sans-serif"><strong><font color="#0099FF"><a href="http://mhdspoje.venuse.savvy.cz/FSSpoje/servlet/FSSpoje?city=Plzen" target="mainFrame">Vyhledání 
+          spojení </a></font></strong></font></th>
+      </tr>

@@ -1,0 +1,66 @@
+@{
+    ViewData["Title"] = "Bratislava";
+    var administrator = (bool)ViewData["Administrator"];
+    var countTagMenu = (int)ViewData["CountTagMenu"];
+    var showKurz = (bool)ViewData["ShowKurz"];
+    var page = (int)ViewData["Page"];
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+    <link rel="stylesheet" type="text/css" href="css/JRBlava/menuBlava.css" />
+    <link rel="stylesheet" type="text/css" href="css/JRBlava/JRBlava.css" />
+    <link rel="stylesheet" type="text/css" href="css/JRBlava/kalendarBlava.css" />
+</head>
+<body>
+    <script type="text/javascript">
+        var vlocation = 6;
+        var vpacket = null;
+    </script>
+    <script type="text/javascript" charset="windows-1250" src="//www.mhdspoje.cz/jrw50/js/JRclass50.js"></script>
+    <script type="text/javascript" src="//www.mhdspoje.cz/jrw50/js/kalendar.js"></script>
+
+    <div id="secondary-nav">
+        <ul>
+            <li id="menu_content_1" class="@(page == 1 ? "active" : "")">
+                <a href="?page=1@(showKurz ? "&kurz=1" : "")">Jízdní řády</a>
+            </li>
+            <li id="menu_content_2" class="@(page == 2 ? "active" : "")">
+                <a href="?page=2@(showKurz ? "&kurz=1" : "")">Linky</a>
+            </li>
+            <li id="menu_content_3" class="@(page == 3 ? "active" : "")">
+                <a href="?page=3@(showKurz ? "&kurz=1" : "")">Zastávky</a>
+            </li>
+            <li id="menu_content_4" class="@(page == 4 ? "active" : "")">
+                <a href="?page=4@(showKurz ? "&kurz=1" : "")">Spojení</a>
+            </li>
+        </ul>
+    </div>
+
+    @if (page == 1)
+    {
+        <div id="content_1" class="content_div">
+            <table>
+                <tr>
+                    <td><label for="select_linka" class="label">Výběr linky :</label></td>
+                    <td>
+                        <div class="div_vyber">
+                            <select class="vyber" id="select_linka"></select>
+                        </div>
+                    </td>
+                    <td><label class="label">Výběr zastávky :</label></td>
+                    <td>
+                        <div class="div_vyber">
+                            <input type="text" id="naseptavacText" class="vyber" style="width:300px" autocomplete="off" />
+                            <img src="//www.mhdspoje.cz/jrw50/image/combodown.png" style="padding-left: 5px;" width="7px" height="7px" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    }
+</body>
+</html>

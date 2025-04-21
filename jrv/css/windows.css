@@ -1,0 +1,47 @@
+root { 
+  display: block;
+}
+
+div.win_border {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: normal;
+  display: table;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;  
+  border-radius: 5px 5px 5px 5px; 
+  border-width: 3px; 
+  border-style: double; 
+  border-color: #000000;
+  padding: 2px 2px 2px 2px;
+  background: #ECECEC;
+}
+
+div.win_canvas
+{    
+/*background: #ECECEC;*/
+border-top: 1px solid #c2c2c2;
+border-right: 1px solid #dfdfdf;
+border-bottom: 1px solid #fafafa;
+border-left: 1px solid #c2c2c2;
+border-radius: 9px;
+/*float: rigth;  */
+-moz-border-radius-topleft: 9px;
+-moz-border-radius-topright: 9px;
+-moz-border-radius-bottomright: 9px;
+-moz-border-radius-bottomleft: 9px;
+-webkit-border-radius: 9px 9px 9px 9px;
+border-radius: 9px 9px 9px 9px; 
+line-height: normal;
+height: 100%;
+padding-right: 1px;
+padding-left: 1px;
+padding-bottom: 1px;
+padding-top: 1px; 
+text-align: center;
+margin: 0px 0px 0px 0px;
+background: transparent;
+}

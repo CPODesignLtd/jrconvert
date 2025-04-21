@@ -1,0 +1,1263 @@
+html {
+	margin: 0px; padding: 0px;
+}
+body {
+	font-family: "Arial CE" ,Arial,Helvetica,sans-serif;
+}
+table {
+	font-family: "Arial CE" ,Arial,Helvetica,sans-serif;
+}
+body {
+	margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-size: 12px; background-color: rgb(255, 255, 255);
+}
+body.win {
+	background: 0px 0px rgb(255, 242, 185); margin: 0px; padding: 2em;
+}
+body.print {
+	background: 0px 0px white; margin: 0px; padding: 1em;
+}
+table {
+	border: currentColor; color: rgb(51, 51, 51); font-size: 1em;
+}
+a {
+	outline: 0px; color: rgb(204, 0, 0); text-decoration: none;
+}
+a:visited {
+	outline: 0px; color: rgb(204, 0, 0); text-decoration: none;
+}
+a:hover {
+	color: rgb(153, 0, 0); text-decoration: underline;
+}
+div#page-bg1 {
+	background: url("page-bg.png") repeat-x top;
+}
+div#page-bg2 {
+	background: url("page.png") repeat-y top;
+}
+div#page-bg3 {
+	background: url("page-outer.png") no-repeat top;
+}
+div#page-bg4 {
+	background: url("page-top.png") no-repeat top;
+}
+div#page_container {
+	background: url("page-content.png") no-repeat center 190px; margin: 0px auto; 
+        /*width: 990px; */padding-top: 190px; position: relative; z-index: 10;
+}
+body.win div#page_container {
+	padding: 0px; width: auto;
+}
+body.print div#page_container {
+	padding: 0px; width: auto;
+}
+body.print a {
+	color: black; font-weight: bold; text-decoration: none;
+}
+div#heading {
+	background: url("bc_head_orange.png") no-repeat left top; left: 0px; top: 0px; width: 990px; height: 125px; position: absolute; z-index: 10;
+}
+div#headingInner {
+	width: 990px; height: 125px; position: relative;
+}
+div#heading span.logo {
+	left: 15px; top: 35px; display: block; position: absolute;
+}
+div#heading span.logo a {
+	outline: 0px; width: 210px; height: 75px; text-indent: -999em; text-decoration: none; display: block; background-image: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/pmdp-logo3EN.png"); background-repeat: no-repeat;
+}
+.langEN div#heading span.logo a {
+	background-image: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/pmdp-logo3EN.png");
+
+}
+div#heading div#bannerLB {
+	top: 10px; width: 728px; height: 90px; right: 10px; position: absolute; z-index: 11;
+}
+div#heading div#languages {
+	left: 165px; top: 10px; position: absolute;
+}
+div#heading div#top_menu {
+	left: 10px; top: 12px; font-size: 10px; position: absolute;
+}
+div#top_menu a {
+	color: rgb(153, 153, 153); font-size: 11px; font-weight: normal;
+}
+div#top_menu a:link {
+	color: rgb(153, 153, 153); font-size: 11px; font-weight: normal;
+}
+div#top_menu a:visited {
+	color: rgb(153, 153, 153); font-size: 11px; font-weight: normal;
+}
+div#top_menu a.active {
+	font-weight: bold;
+}
+div#top_menu a.active:hover {
+	font-weight: bold;
+}
+div#top_menu a:hover {
+	color: rgb(153, 153, 153); text-decoration: underline;
+}
+div#top_menu li {
+	margin: 0px; padding: 0px 5px; border-left-color: rgb(204, 204, 204); border-left-width: 1px; border-left-style: solid; float: left;
+}
+div#top_menu li:first-child {
+	border-left-color: currentColor; border-left-width: medium; border-left-style: none;
+}
+div#top_menu ul {
+	list-style: none; margin: 0px; padding: 0px;
+}
+div#top_menu ul ul {
+	display: none;
+}
+div#menu_bar_center {
+	margin-right: auto; margin-left: auto;
+}
+div#menu_bar_top {
+	left: 0px; top: 115px; width: 990px; height: 70px; position: absolute; z-index: 100;
+}
+ul#menu_main a span {
+	padding: 0px 5px; text-align: center; text-transform: none; line-height: 60px; text-decoration: none; display: block; cursor: pointer;
+}
+ul#menu_main a:link span {
+	padding: 0px 5px; text-align: center; text-transform: none; line-height: 60px; text-decoration: none; display: block;
+}
+ul#menu_main a:visited span {
+	padding: 0px 5px; text-align: center; text-transform: none; line-height: 60px; text-decoration: none; display: block;
+}
+ul#menu_main a {
+	background-position: 0px -64px; width: 120px; color: rgb(153, 0, 0); padding-top: 10px; font-family: sans-serif; font-size: 14px; font-weight: bold; text-decoration: none; display: block; white-space: nowrap; position: relative; background-image: url("menu-item.png"); background-repeat: repeat-x;
+}
+ul#menu_main a:link {
+	background-position: 0px -64px; width: 120px; color: rgb(153, 0, 0); padding-top: 10px; font-family: sans-serif; font-size: 14px; font-weight: bold; text-decoration: none; display: block; white-space: nowrap; position: relative; background-image: url("menu-item.png"); background-repeat: repeat-x;
+}
+ul#menu_main a:visited {
+	background-position: 0px -64px; width: 120px; color: rgb(153, 0, 0); padding-top: 10px; font-family: sans-serif; font-size: 14px; font-weight: bold; text-decoration: none; display: block; white-space: nowrap; position: relative; background-image: url("menu-item.png"); background-repeat: repeat-x;
+}
+.langCS ul#menu_main li.favorite a {
+	background-position: right -77px; background-image: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/menu-item-favorite3.png"); background-repeat: no-repeat;
+}
+.langCS ul#menu_main li.favorite a:link {
+	background-position: right -77px; background-image: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/menu-item-favorite3.png"); background-repeat: no-repeat;
+}
+.langCS ul#menu_main li.favorite a:visited {
+	background-position: right -77px; background-image: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/menu-item-favorite3.png"); background-repeat: no-repeat;
+}
+ul#menu_main a.active span {
+	color: rgb(255, 255, 255);
+}
+ul#menu_main a.active:hover span {
+	color: rgb(255, 255, 255);
+}
+ul#menu_main a.active {
+	background-position: 0px 8px; color: rgb(255, 255, 255); text-decoration: none; cursor: pointer;
+}
+ul#menu_main a.active:hover {
+	background-position: 0px 8px; color: rgb(255, 255, 255); text-decoration: none; cursor: pointer;
+}
+ul#menu_main a.active:visited {
+	background-position: 0px 8px; color: rgb(255, 255, 255); text-decoration: none;
+}
+.langCS ul#menu_main li.favorite a.active {
+	background-position: right 0px;
+}
+.langCS ul#menu_main li.favorite a.active:hover {
+	background-position: right 0px;
+}
+.langCS ul#menu_main li.favorite a.active:visited {
+	background-position: right 0px;
+}
+ul#menu_main a:hover {
+	background-position: 0px 8px; color: rgb(255, 255, 255); text-decoration: none;
+}
+.langCS ul#menu_main li.favorite a:hover {
+	background-position: right 0px;
+}
+ul#menu_main a:hover span {
+	
+}
+ul#menu_main li {
+	background-position: left 13px; margin: 0px; padding: 0px 0px 0px 2px; float: left; position: relative; background-image: url("menu--delim.png"); background-repeat: no-repeat;
+}
+ul#menu_main li:first-child {
+	padding: 0px;
+}
+ul#menu_main {
+	list-style: none; margin: 0px; padding: 0px;
+}
+#footerhelp {
+	background: 0px 0px white; width: 125px; height: 40px; text-align: center; color: black; clear: both;
+}
+div#footerhelp a {
+	padding: 0px 2px; color: rgb(0, 0, 0); text-decoration: none;
+}
+div#footerhelp a:hover {
+	text-decoration: underline;
+}
+#page-footer {
+	background-position: center 0px; clear: both; min-width: 990px; background-image: url("page-footer.png"); background-repeat: no-repeat; background-color: rgb(255, 255, 255);
+}
+#footer {
+	margin: 0px auto; width: 990px; height: 33px; clear: both; min-height: 70px;
+}
+#footer .copyright {
+	height: 65px; text-align: center;
+}
+#footer .copyright-inner {
+	padding: 25px 0px 0px; font-weight: bold;
+}
+#footer .madeby {
+	padding: 0px 20px 10px; text-align: center; color: rgb(102, 102, 102); font-size: 0.9em;
+}
+div#content_main {
+	padding: 10px 0px 20px; width: 850px; float: right; position: relative; z-index: 20; min-height: 250px;
+}
+div#content_main div#main-center {
+	padding: 0px 10px;
+}
+div#content_main table {
+	text-align: left;
+}
+div#content_main p {
+	text-align: justify;
+}
+div#content_main h1 {
+	padding: 0px 10px; font-size: 17px; font-weight: bold;
+}
+div#left_col {
+	width: 130px; text-align: center; padding-bottom: 50px; margin-top: 5px; float: left; position: relative; z-index: 20;
+}
+div#left_col a {
+	padding: 0px 2px; color: rgb(153, 0, 0); text-decoration: none;
+}
+div#left_col a:hover {
+	text-decoration: underline;
+}
+div#left_col img {
+	margin-top: 30px;
+}
+div#left_col div#bannerVB {
+	padding-top: 20px; display: none;
+}
+div#right_col {
+	width: 100px; text-align: left; padding-bottom: 50px; margin-top: 5px; float: right; position: relative; z-index: 20;
+}
+div#right_col div#help {
+	width: 60px; text-align: center;
+}
+div#right_col div#help a {
+	padding: 0px 2px; color: rgb(0, 0, 0); text-decoration: none;
+}
+div#right_col div#help a:hover {
+	text-decoration: underline;
+}
+div#right_col div#help img {
+	margin-top: 30px;
+}
+img {
+	border: currentColor;
+}
+h1 {
+	font-weight: bold;
+}
+h2 {
+	font-weight: bold;
+}
+h3 {
+	font-weight: bold;
+}
+p {
+	margin: 10px 0px; font-size: 11px;
+}
+.autocomplete_list {
+	margin: 0px !important; padding: 0px; border: 1px solid buttonshadow; text-align: left; color: windowtext; overflow: auto; font-family: tahoma; font-size: 10px; font-weight: normal; list-style-type: none; visibility: hidden; cursor: default; background-color: inherit;
+}
+.autocomplete_highlighted_listitem {
+	padding: 3px; color: highlighttext; background-color: highlight;
+}
+.autocomplete_listItem {
+	padding: 3px; color: windowtext; background-color: window;
+}
+table.spojeni {
+	width: 99%;
+}
+table.spojeni th {
+	padding: 8px 5px; font-size: 14px; border-bottom-color: rgb(255, 204, 51); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.spojeni td {
+	padding: 8px 5px; font-size: 14px; border-bottom-color: rgb(255, 204, 51); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.spojeni th {
+	border-top-color: rgb(255, 204, 51); border-top-width: 1px; border-top-style: solid; background-color: rgb(255, 204, 51);
+}
+table.spojeni th.sl1 {
+	width: 50px; text-align: center; border-left-color: rgb(255, 204, 51); border-left-width: 1px; border-left-style: solid;
+}
+table.spojeni td.sl1 {
+	width: 50px; text-align: center; border-left-color: rgb(255, 204, 51); border-left-width: 1px; border-left-style: solid;
+}
+table.spojeni td.sl1 a {
+	color: rgb(0, 52, 107); font-size: 18px; font-weight: bold;
+}
+table.spojeni th.sl2 {
+	width: 75px;
+}
+table.spojeni td.sl2 {
+	width: 75px;
+}
+table.spojeni td.sl2 a {
+	color: rgb(0, 52, 107); font-size: 12px; font-weight: bold;
+}
+table.spojeni th.sl3 {
+	width: auto;
+}
+table.spojeni td.sl3 {
+	width: auto;
+}
+table.spojeni th.sl4 {
+	width: 70px; text-align: center;
+}
+table.spojeni td.sl4 {
+	width: 70px; text-align: center;
+}
+table.spojeni th.sl5 {
+	width: 70px; text-align: center;
+}
+table.spojeni td.sl5 {
+	width: 70px; text-align: center;
+}
+table.spojeni td.sl5 {
+	font-weight: bold;
+}
+table.spojeni th.sl6 {
+	width: 70px; text-align: center; border-right-color: rgb(255, 204, 51); border-right-width: 1px; border-right-style: solid;
+}
+table.spojeni td.sl6 {
+	width: 70px; text-align: center; border-right-color: rgb(255, 204, 51); border-right-width: 1px; border-right-style: solid;
+}
+table.spojeni td.sl6Presun {
+	width: 70px; text-align: left; color: rgb(136, 136, 136); padding-left: 23px; border-right-color: rgb(255, 204, 51); border-right-width: 1px; border-right-style: solid;
+}
+table.spojeni tr.nazev td {
+	border: currentColor; color: rgb(0, 0, 0); font-size: 17px; font-weight: bold;
+}
+table.spojeni tr.nazev td font .blue {
+	color: rgb(0, 52, 107);
+}
+table.spojeni tr.info td {
+	border: currentColor; font-size: 10px;
+}
+table.spojeni tr.info td font .red {
+	color: rgb(206, 15, 19); font-weight: bold;
+}
+table.spojeni tr.info td.sl4-6 {
+	color: rgb(0, 52, 107);
+}
+div.icons {
+	float: right;
+}
+div.icons a.no-line {
+	text-decoration: none;
+}
+table.st th {
+	padding: 8px 15px 8px 10px;
+}
+table.st td {
+	padding: 8px 5px 8px 10px; background-color: rgb(255, 255, 204);
+}
+table.st tr.slReq td {
+	background-color: rgb(255, 255, 153);
+}
+table.st td td {
+	margin: 0px; padding: 3px;
+}
+table.st td td a {
+	text-decoration: none;
+}
+table.st td th {
+	margin: 0px; padding: 3px;
+}
+table.st tr.nazev td {
+	font-size: 17px; font-weight: bold; border-bottom-color: rgb(255, 204, 0); border-bottom-width: 1px; border-bottom-style: solid; background-color: transparent;
+}
+table.st tr.underline th {
+	border-bottom-color: rgb(255, 204, 51); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.st tr.underline td {
+	border-bottom-color: rgb(255, 204, 51); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.st tr.overline th {
+	border-top-color: rgb(255, 204, 51); border-top-width: 1px; border-top-style: solid;
+}
+table.st tr.overline td {
+	border-top-color: rgb(255, 204, 51); border-top-width: 1px; border-top-style: solid;
+}
+table.st th {
+	width: 105px; text-align: right; font-size: 12px; font-weight: bold; border-left-color: rgb(255, 204, 51); border-left-width: 1px; border-left-style: solid; background-color: rgb(255, 204, 51);
+}
+table.st tr.slReq th {
+	background-color: rgb(255, 204, 0);
+}
+table.st td.sl3 {
+	width: 250px;
+}
+.error {
+	color: rgb(206, 15, 19);
+}
+table.st div.btns input {
+	width: 70px; float: left;
+}
+table.st div.btns div {
+	width: 15px; height: 18px; margin-left: 10px; float: left;
+}
+table.st td.sl4-6 {
+	width: 210px; border-right-color: rgb(255, 204, 51); border-right-width: 1px; border-right-style: solid;
+}
+table.st td.sl3-6 {
+	width: 460px; border-right-color: rgb(255, 204, 51); border-right-width: 1px; border-right-style: solid;
+}
+table.st td.slbright {
+	border-right-color: rgb(255, 204, 51); border-right-width: 1px; border-right-style: solid;
+}
+table.st td.sl3-6 .error {
+	color: rgb(206, 15, 19);
+}
+table.st tr.nazev td.sl3-6 {
+	border-right-color: currentColor; border-right-width: medium; border-right-style: none;
+}
+input.send {
+	margin: 0px 0px 0px 135px;
+}
+input.SwitchButtonStyle {
+	border: currentColor; width: 30px; height: 25px; background-image: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/button-switch.png"); background-repeat: no-repeat; background-color: transparent;
+}
+#sendAlter {
+	display: none;
+}
+table.st tr.underline td table tr td {
+	border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;
+}
+table.clb td {
+	border: 0px solid rgb(206, 15, 19);
+}
+table.sjr {
+	width: 100%; color: rgb(51, 51, 51); font-family: sans-serif; font-size: 12px; border-collapse: collapse; table-layout: auto;
+}
+table.sjr th {
+	padding: 3px 5px;
+}
+table.sjr td {
+	padding: 3px 5px;
+}
+table.sjr th {
+	padding: 8px 5px; border-top-color: rgb(255, 204, 51); border-bottom-color: rgb(255, 204, 51); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; background-color: rgb(255, 204, 51);
+}
+table.sjr th.sl1 {
+	width: 75px; text-align: center; border-left-color: rgb(255, 204, 51); border-left-width: 1px; border-left-style: solid;
+}
+table.sjr th.sl2 {
+	width: 170px;
+}
+table.sjr th.sl3 {
+	padding: 0px; width: 355px; border-right-color: rgb(255, 204, 51); border-left-color: rgb(255, 204, 51); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid;
+}
+table.sjr th.sl3 div.nadp {
+	padding: 5px 0px 5px 18px; float: left;
+}
+table.sjr th.sl3 div.icons {
+	padding: 0px 10px 0px 0px; float: right;
+}
+table.sjr th.sl3 div.icons a.no-line {
+	text-decoration: none;
+}
+table.sjr tr.nazev td {
+	padding: 8px 5px; border: currentColor; color: rgb(206, 15, 19); font-size: 17px; font-weight: bold;
+}
+table.sjr tr.nazev td font .blue {
+	color: rgb(0, 52, 107);
+}
+table.sjr td.blok1 {
+	vertical-align: top; border-bottom-color: rgb(255, 204, 51); border-left-color: rgb(255, 204, 51); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid;
+}
+table.sjr td.blok2 {
+	vertical-align: top; border-bottom-color: rgb(255, 204, 51); border-left-color: rgb(255, 204, 51); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid;
+}
+table.sjr td.blok3 {
+	vertical-align: top; border-bottom-color: rgb(255, 204, 51); border-left-color: rgb(255, 204, 51); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid;
+}
+table.sjr td.blok2 {
+	padding: 0px 8px;
+}
+table.sjr td.blok3 {
+	border-right-color: rgb(255, 204, 51); border-right-width: 1px; border-right-style: solid;
+}
+table.sjr td.blok1 .in {
+	margin: 3px 0px; float: left;
+}
+table.sjr td.blok1 .in2 {
+	margin: 3px 0px; float: left;
+}
+table.sjr td.blok1 .in {
+	width: 75px; text-align: center;
+}
+table.sjr td.blok1 {
+	width: 270px;
+}
+table.sjr td.blok2 {
+	width: 270px;
+}
+table.sjr td.blok1 .in2 {
+	width: 140px; margin-left: 10px;
+}
+table.sjr td.blok2 div.name {
+	padding: 8px 5px 0px; text-align: right; font-weight: bold;
+}
+table.sjr td.blok2 td.nr {
+	width: 55px; color: rgb(0, 52, 107); font-weight: bold;
+}
+table.sjr td.blok2 td.nr img {
+	float: right;
+}
+table.sjr td.blok2 td.text {
+	width: 120px; clear: right;
+}
+table.sjr td.blok2 td.cas {
+	padding: 0px 0px 10px; width: 40px; text-align: right; color: rgb(0, 52, 107); font-size: 10px;
+}
+table.sjr td.blok2 div.cas img {
+	
+}
+table.sjr td.blok3 div.hr {
+	padding: 6px 5px; width: 30px; float: left;
+}
+table.sjr td.blok3 div.min {
+	padding: 6px 5px; width: 30px; float: left;
+}
+table.sjr td.blok3 div.hrMin {
+	padding: 5px 2px; width: 20px; text-align: right; font-size: 10px; font-weight: bold; float: left;
+}
+table.sjr td.blok3 div.minMin {
+	padding: 1px; width: 40px; font-size: 10px; float: left;
+}
+table.sjr td.blok3 div.min sup {
+	color: rgb(0, 52, 107); font-weight: bold;
+}
+table.sjr td.blok3 div.sup.minMin {
+	color: rgb(0, 52, 107); font-weight: bold;
+}
+table.sjr td.blok3 div.hr {
+	text-align: right; padding-top: 9px; font-weight: bold;
+}
+table.sjr a {
+	border: currentColor; color: rgb(206, 15, 19); font-weight: bold; text-decoration: none;
+}
+table.detail {
+	width: 99%; border-collapse: collapse;
+}
+table.detail th {
+	padding: 8px 5px; border: 1px solid rgb(255, 204, 51);
+}
+table.detail td {
+	padding: 8px 5px; border: 1px solid rgb(255, 204, 51);
+}
+table.detail th {
+	background-color: rgb(255, 204, 51);
+}
+table.detail th.sl1 {
+	width: 10%; text-align: center;
+}
+table.detail td.sl1 {
+	width: 10%; text-align: center;
+}
+table.detail th.sl2 {
+	width: 50%;
+}
+table.detail td.sl2 {
+	width: 50%;
+}
+table.detail th.sl3 {
+	width: 10%; text-align: center;
+}
+table.detail td.sl3 {
+	width: 10%; text-align: center;
+}
+table.detail th.sl4 {
+	width: 10%; text-align: center;
+}
+table.detail td.sl4 {
+	width: 10%; text-align: center;
+}
+table.detail th.sl5 {
+	width: 10%; text-align: center;
+}
+table.detail td.sl5 {
+	width: 10%; text-align: center;
+}
+table.detail tr.nazev td {
+	border: currentColor; font-size: 17px; font-weight: bold;
+}
+table.detail tr.nazev td font .blue {
+	color: rgb(0, 51, 102);
+}
+table.detail tr.nazev td a {
+	
+}
+table.detail tr.info td {
+	border: currentColor; font-size: 10px;
+}
+table.detail tr.info td font.red {
+	color: rgb(0, 0, 0); font-weight: bold;
+}
+table.detail tr.info td font .blue {
+	color: rgb(0, 51, 102);
+}
+table.detail tr.info td.sl4-6 {
+	color: rgb(0, 51, 102);
+}
+div.icons {
+	float: right;
+}
+div.icons a.no-line {
+	text-decoration: none;
+}
+table.searchInfo th {
+	padding: 15px 15px 15px 10px;
+}
+table.searchInfo td {
+	padding: 15px 5px 15px 10px;
+}
+table.searchInfo tr.nazev td {
+	color: rgb(206, 15, 19); font-size: 17px; font-weight: bold; border-bottom-color: rgb(206, 203, 206); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.searchInfo tr.underline th {
+	border-bottom-color: rgb(206, 203, 206); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.searchInfo tr.underline td {
+	border-bottom-color: rgb(206, 203, 206); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.searchInfo th {
+	width: 105px; text-align: right; font-size: 12px; font-weight: bold; border-left-color: rgb(206, 203, 206); border-left-width: 1px; border-left-style: solid; background-color: rgb(239, 235, 239);
+}
+table.searchInfo td.sl3 {
+	border-right-color: rgb(206, 203, 206); border-right-width: 1px; border-right-style: solid;
+}
+table.searchInfo td.sl3 input {
+	width: 250px;
+}
+table.searchInfo td.sl3-6 {
+	padding: 8px 15px 8px 10px; width: 460px; border-right-color: rgb(206, 203, 206); border-right-width: 1px; border-right-style: solid;
+}
+table.searchInfo tr.nazev td.sl3-6 {
+	border-right-color: currentColor; border-right-width: medium; border-right-style: none;
+}
+table.searchInfo td.sl3-6 div.btns input {
+	width: 70px; float: left;
+}
+table.searchInfo td.sl3-6 div.btns div {
+	width: 15px; height: 18px; margin-left: 10px; float: left;
+}
+table.searchInfo td.sl3-6 div.btns div img {
+	width: 15px; height: 9px; margin-bottom: 3px; float: left;
+}
+table.searchInfo td.sl3-6 div.btns img.ico {
+	margin-left: 10px; float: left;
+}
+table.searchInfo2 {
+	width: 100%;
+}
+table.searchInfo2 th {
+	padding: 8px 5px; border-bottom-color: rgb(206, 203, 206); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.searchInfo2 td {
+	padding: 8px 5px; border-bottom-color: rgb(206, 203, 206); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.searchInfo2 th {
+	border-top-color: rgb(206, 203, 206); border-top-width: 1px; border-top-style: solid; background-color: rgb(239, 235, 239);
+}
+table.searchInfo2 th.sl1 {
+	width: 300px; padding-left: 30px; font-weight: bold; border-right-color: rgb(206, 203, 206); border-left-color: rgb(206, 203, 206); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid;
+}
+table.searchInfo2 td.sl1 {
+	width: 300px; padding-left: 30px; font-weight: bold; border-right-color: rgb(206, 203, 206); border-left-color: rgb(206, 203, 206); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid;
+}
+table.searchInfo2 tr.nazev td font .blue {
+	color: rgb(0, 52, 107);
+}
+table.searchInfo2 tr.info td font .red {
+	color: rgb(206, 15, 19); font-weight: bold;
+}
+table.searchInfo2 tr.nazev td {
+	border: currentColor; color: rgb(206, 15, 19); font-size: 17px; font-weight: bold;
+}
+table.searchInfo2 a {
+	border: currentColor; color: rgb(206, 15, 19); font-weight: bold; text-decoration: none;
+}
+table.searchInfo2 tr.nazev td font .blue {
+	color: rgb(0, 52, 107);
+}
+table.searchInfo3 th {
+	padding: 8px 5px; border-bottom-color: rgb(206, 203, 206); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.searchInfo3 td {
+	padding: 8px 5px; border-bottom-color: rgb(206, 203, 206); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table.searchInfo3 th {
+	background-color: rgb(239, 235, 239);
+}
+table.searchInfo3 a {
+	border: currentColor; color: rgb(206, 15, 19); font-weight: bold; text-decoration: none;
+}
+table.searchInfo3 th.sl1 {
+	width: 60px; text-align: center; font-weight: bold;
+}
+table.searchInfo3 td.sl1 {
+	width: 60px; text-align: center; font-weight: bold;
+}
+table.searchInfo3 th.sl5 {
+	width: 60px; text-align: center; font-weight: bold;
+}
+table.searchInfo3 td.sl5 {
+	width: 60px; text-align: center; font-weight: bold;
+}
+table.searchInfo3 th.sl1 {
+	border-left-color: rgb(206, 203, 206); border-left-width: 1px; border-left-style: solid;
+}
+table.searchInfo3 td.sl1 {
+	border-left-color: rgb(206, 203, 206); border-left-width: 1px; border-left-style: solid;
+}
+table.searchInfo3 th.sl3 {
+	width: 180px;
+}
+table.searchInfo3 td.sl3 table.searchInfo3 th.sl6 {
+	width: 180px;
+}
+table.searchInfo3 td.sl6 {
+	width: 180px;
+}
+table.searchInfo3 th.sl4 {
+	width: 100px;
+}
+table.searchInfo3 td.sl4 {
+	width: 100px;
+}
+table.searchInfo3 th.sl6 {
+	border-right-color: rgb(206, 203, 206); border-right-width: 1px; border-right-style: solid;
+}
+table.searchInfo3 td.sl6 {
+	border-right-color: rgb(206, 203, 206); border-right-width: 1px; border-right-style: solid;
+}
+table.searchInfo3 tr.casy td {
+	font-weight: bold;
+}
+table.searchInfo3 tr.nazev td {
+	border: currentColor; color: rgb(206, 15, 19); font-size: 17px; font-weight: bold;
+}
+table.searchInfo3 tr.nazev td font .blue {
+	color: rgb(0, 52, 107);
+}
+table.searchInfo3 tr.info td {
+	border: currentColor; font-size: 10px;
+}
+table.searchInfo3 tr.info td font .red {
+	color: rgb(206, 15, 19); font-weight: bold;
+}
+table.searchInfo3 tr.info td font .blue {
+	color: rgb(0, 52, 107);
+}
+table.zjr {
+	width: 100%; color: rgb(51, 51, 51); font-family: sans-serif; font-size: 12px; border-collapse: collapse; table-layout: auto;
+}
+table.zjr th {
+	padding: 3px 5px;
+}
+table.zjr td {
+	padding: 3px 5px;
+}
+table.zjr th {
+	padding: 8px 5px; border-top-color: rgb(255, 204, 51); border-bottom-color: rgb(255, 204, 51); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; background-color: rgb(255, 204, 51);
+}
+table.zjr th.sl1 {
+	width: 85px; text-align: left; border-left-color: rgb(255, 204, 51); border-left-width: 1px; border-left-style: solid;
+}
+table.zjr th.sl2 {
+	width: 160px;
+}
+table.zjr th.sl3 {
+	padding: 0px; width: 355px; border-right-color: rgb(255, 204, 51); border-left-color: rgb(255, 204, 51); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid;
+}
+table.zjr th.sl3 div.nadp {
+	padding: 5px 0px 5px 18px; float: left;
+}
+table.zjr th.sl3 div.icons {
+	padding: 0px 10px 0px 0px; float: right;
+}
+table.zjr th.sl3 div.icons a.no-line {
+	text-decoration: none;
+}
+table.zjr tr.nazev td {
+	padding: 8px 0px; border: currentColor; color: rgb(206, 15, 19); font-size: 17px; font-weight: bold;
+}
+tr.nazev td .LineTramStyle {
+	color: rgb(0, 0, 0); line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+tr.nazev td .LineTrolStyle {
+	color: rgb(0, 0, 0); line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+tr.nazev td .LineBusStyle {
+	color: rgb(0, 0, 0); line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+tr.nazev td .LineFreeStyle {
+	color: rgb(0, 0, 0); line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+tr.nazev td .LineNightStyle {
+	color: rgb(0, 0, 0); line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+tr.nazev td .LineZooStyle {
+	color: rgb(0, 0, 0); line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+tr.nazev td .LineDiversionStyle {
+	color: rgb(0, 0, 0); line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+tr.nazev td .LineTramStyle {
+	background: url("tram.png") no-repeat right;
+}
+tr.nazev td .LineTrolStyle {
+	background: url("trol.png") no-repeat right;
+}
+tr.nazev td .LineBusStyle {
+	background: url("bus.png") no-repeat right;
+}
+tr.nazev td .LineFreeStyle {
+	background: url("busDisabled.png") no-repeat right;
+}
+tr.nazev td .LineNightStyle {
+	background: url("busNight.png") no-repeat right;
+}
+tr.nazev td .LineZooStyle {
+	background: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/zoo.png") no-repeat right;
+}
+tr.nazev td .LineDiversionStyle {
+	background: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/diversion2.png") no-repeat right;
+}
+table.zjr tr.nazev td font .blue {
+	color: rgb(0, 52, 107);
+}
+table.zjr td.blok1 {
+	vertical-align: top; border-bottom-color: rgb(255, 204, 51); border-left-color: rgb(255, 204, 51); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid;
+}
+table.zjr td.blok2 {
+	vertical-align: top; border-bottom-color: rgb(255, 204, 51); border-left-color: rgb(255, 204, 51); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid;
+}
+table.zjr td.blok3 {
+	vertical-align: top; border-bottom-color: rgb(255, 204, 51); border-left-color: rgb(255, 204, 51); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid;
+}
+table.zjr td.blok3 {
+	border-right-color: rgb(255, 204, 51); border-right-width: 1px; border-right-style: solid;
+}
+table.zjr td.blok1 .in {
+	margin: 3px 0px; float: left;
+}
+table.zjr td.blok1 .in2 {
+	margin: 3px 0px; float: left;
+}
+table.zjr td.blok1 .in {
+	width: 75px; text-align: center;
+}
+table.zjr td.blok1 {
+	width: 270px;
+}
+table.zjr td.blok1 .in2 {
+	width: 140px; margin-left: 20px;
+}
+table.zjr td.blok3 div.hr {
+	padding: 6px 5px; width: 30px; float: left;
+}
+table.zjr td.blok3 div.hr {
+	padding: 5px 2px; width: 20px; text-align: right; font-size: 12px; font-weight: bold; float: left;
+}
+table.zjr td.blok3 div.min {
+	padding: 1px 5px; height: 15px; font-size: 12px; float: left;
+}
+table.zjr td.blok3 div.min span.sup {
+	color: rgb(0, 52, 107); font-weight: bold;
+}
+table.zjr td.blok3 div.hr {
+	text-align: right; padding-top: 4px; font-weight: bold;
+}
+table.zjr td.blok3 p {
+	text-align: center; font-size: 12px; font-weight: bold; text-decoration: underline;
+}
+table.zjr td.blok2 {
+	padding: 0px 8px; width: 270px;
+}
+table.zjr td.blok2 div.name {
+	padding: 8px 5px 0px; text-align: right; font-weight: bold;
+}
+table.zjr td.blok2 td.nr {
+	width: 15px; color: rgb(0, 52, 107); font-weight: bold;
+}
+table.zjr td.blok2 td.nr img {
+	float: right;
+}
+table.zjr td.blok2 td.text {
+	width: 200px; clear: right;
+}
+table.zjr td.blok2 td.cas {
+	padding: 0px 0px 10px; width: 40px; text-align: right; color: rgb(0, 52, 107); font-size: 10px;
+}
+table.zjr td.blok2 div.cas img {
+	
+}
+table.zjr a {
+	border: currentColor; color: rgb(206, 15, 19); font-weight: bold; text-decoration: none;
+}
+table.zjr td.blok1 a.thin {
+	border: currentColor; color: rgb(206, 15, 19); font-weight: normal; text-decoration: none;
+}
+table.zjr tr.nazev td.sl1 {
+	width: 150px;
+}
+calendar {
+	z-index: 50000;
+}
+tr.resultHead {
+	color: rgb(51, 51, 51); font-size: 1em; font-weight: bold; border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; background-color: rgb(255, 204, 51);
+}
+.resultHeadTD {
+	border-width: 1px 0px 1px 1px; border-style: solid; border-color: rgb(255, 204, 51);
+}
+.resultHeadTD2 {
+	border: 1px solid rgb(255, 204, 51);
+}
+.sl1 {
+	padding: 8px 0px; border: currentColor; font-size: 17px; font-weight: bold;
+}
+.sl2-3 {
+	padding: 8px 0px 8px 25px; border: currentColor; color: rgb(206, 15, 19); font-size: 17px; font-weight: bold;
+}
+div.nadp {
+	vertical-align: middle;
+}
+table#timetableInfoPrint {
+	display: none;
+}
+div#stationMarker_input {
+	
+}
+div#stationMarker_title {
+	padding: 8px 5px; line-height: 22px; font-size: 17px; font-weight: bold;
+}
+div#stationMarker_errors {
+	color: red;
+}
+div#stationMarker_result {
+	
+}
+.stationMarker_connectionsGrid {
+	border: currentColor; width: 99%;
+}
+.stationMarker_connectionsGrid td {
+	padding: 5px; border: 1px solid rgb(255, 204, 51); font-size: 14px;
+}
+.stationMarker_connectionsGrid th {
+	padding: 5px; border: 1px solid rgb(255, 204, 51); font-size: 14px;
+}
+.stationMarker_connectionsGrid th {
+	background-color: rgb(255, 204, 51);
+}
+.stationMarker_DepartureTimeHeaderStyle {
+	text-align: center;
+}
+.stationMarker_connectionsGrid td.stationMarker_DepartureTimeItemStyle {
+	width: 20%; text-align: center; font-weight: bold;
+}
+.stationMarker_EndStationNameHeaderStyle {
+	text-align: left;
+}
+.stationMarker_EndStationNameItemStyle {
+	width: 60%; text-align: left;
+}
+.stationMarker_LineNumberHeaderStyle {
+	text-align: center;
+}
+.stationMarker_TractionItemStyle {
+	text-align: center;
+}
+.stationMarker_connectionsGrid td.stationMarker_LineNumberItemStyle {
+	width: 10%; text-align: center; font-size: 16px; font-weight: bold;
+}
+.stationMarker_StatusHeaderStyle {
+	text-align: center;
+}
+.stationMarker_StatusItemStyle {
+	width: 10%; text-align: center;
+}
+.stationMarker_DelayHeaderStyle {
+	text-align: center;
+}
+.stationMarker_DelayItemStyle {
+	width: 10%; text-align: left; font-weight: bold; vertical-align: middle;
+}
+.stationMarker_DelayItemStyle img {
+	margin: 0px 0.5em 0px 1em; vertical-align: middle;
+}
+.stationMarker_NextButtonStyle {
+	margin: 10px 0px 0px; float: left;
+}
+.stationMarker_ActualizeButtonStyle {
+	background: url("button-refresh.png") no-repeat left top; margin: 0px 0.2em 0px 0px; width: 122px; height: 24px; text-indent: -999em; float: right; display: block;
+}
+.langEN .stationMarker_ActualizeButtonStyle {
+	background-image: url("button-refreshEN.png");
+}
+div#stationMarker_help {
+	margin: 10px 0px 0px; line-height: 30px; float: right;
+}
+div#stationMarker_help img {
+	vertical-align: middle;
+}
+.stationMarker_ShowConnectionsButtonStyle {
+	margin: 10px 0px 10px 135px;
+}
+table.stationsList {
+	width: 99%; border-collapse: collapse; border-spacing: 0;
+}
+.stationsList td {
+	padding: 5px; border: 1px solid rgb(255, 204, 51); line-height: 20px; font-size: 14px;
+}
+.stationsList th {
+	padding: 5px; border: 1px solid rgb(255, 204, 51); line-height: 20px; font-size: 14px;
+}
+.stationsList th {
+	font-size: 14px;
+}
+.stationsList_BusStyle {
+	margin: 0px 1em 0px 0px; color: rgb(51, 51, 51); padding-right: 16px; font-weight: bold; display: inline-block;
+}
+.stationsList_TramStyle {
+	margin: 0px 1em 0px 0px; color: rgb(51, 51, 51); padding-right: 16px; font-weight: bold; display: inline-block;
+}
+.stationsList_NightStyle {
+	margin: 0px 1em 0px 0px; color: rgb(51, 51, 51); padding-right: 16px; font-weight: bold; display: inline-block;
+}
+.stationsList_TrolStyle {
+	margin: 0px 1em 0px 0px; color: rgb(51, 51, 51); padding-right: 16px; font-weight: bold; display: inline-block;
+}
+.stationsList_FreeStyle {
+	margin: 0px 1em 0px 0px; color: rgb(51, 51, 51); padding-right: 16px; font-weight: bold; display: inline-block;
+}
+.stationsList_BusStyle {
+	background: url("bus_small.png") no-repeat right;
+}
+.stationsList_TramStyle {
+	background: url("tram_small.png") no-repeat right;
+}
+.stationsList_TrolStyle {
+	background: url("trol_small.png") no-repeat right;
+}
+.stationsList_FreeStyle {
+	background: url("busDisabled_small.png") no-repeat right; padding-right: 18px;
+}
+.stationsList_NightStyle {
+	background: url("busNight_small.png") no-repeat right; padding-right: 18px;
+}
+.stationsList_StationNameStyle {
+	white-space: nowrap;
+}
+.stationsList_StationNameStyle a.no-line {
+	margin-left: 0.5em;
+}
+table.linesList {
+	width: 99%; border-collapse: collapse; border-spacing: 0;
+}
+.linesList td {
+	padding: 5px; border: 1px solid rgb(255, 204, 51); font-size: 12px;
+}
+.linesList th {
+	padding: 5px; border: 1px solid rgb(255, 204, 51); font-size: 12px;
+}
+.linesList thead th {
+	padding: 8px 5px; text-align: center; font-size: 14px; background-color: rgb(255, 204, 51);
+}
+.linesList tbody th {
+	padding: 2px 35px 2px 5px; text-align: right; font-size: 17px;
+}
+.linesList th.linesList_TramStyle {
+	background: url("tram.png") no-repeat 90%;
+}
+.linesList th.linesList_TrolStyle {
+	background: url("trol.png") no-repeat 90%;
+}
+.linesList th.linesList_BusStyle {
+	background: url("bus.png") no-repeat 90%;
+}
+.linesList th.linesList_FreeStyle {
+	background: url("busDisabled.png") no-repeat 90%; padding-right: 38px;
+}
+.linesList th.linesList_NightStyle {
+	background: url("busNight.png") no-repeat 90%; padding-right: 38px;
+}
+.linesList th.linesList_ZooStyle {
+	background: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/zoo.png") no-repeat 90%; padding-right: 38px;
+}
+.linesList th.linesList_DiversionStyle {
+	background: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/diversion2.png") no-repeat 90%; padding-right: 38px;
+}
+.linesList td.linesList_StartEnd {
+	font-weight: bold;
+}
+.allTable {
+	margin: 10px 0px 0px; width: 100%;
+}
+.allTable div#pdf_version {
+	text-align: right; padding-right: 0.5em;
+}
+.allTable .selectedTerm {
+	font-size: 110%; font-weight: bold;
+}
+.allTable .unselectedTerm {
+	
+}
+.allTable td.leftColumn {
+	width: 24%; text-align: left; vertical-align: top;
+}
+.allTable td.rightColumn {
+	width: 76%; text-align: left; vertical-align: top;
+}
+.allTable td.lineNote {
+	padding: 5px; border: currentColor; background-color: rgb(240, 240, 240);
+}
+.allTable table.footerTable {
+	width: 100%; background-color: rgb(240, 240, 240);
+}
+.allTable table.footerTable td {
+	padding: 5px; font-size: 11px;
+}
+.allTable .LineTramStyle {
+	line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+.allTable .LineTrolStyle {
+	line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+.allTable .LineBusStyle {
+	line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+.allTable .LineFreeStyle {
+	line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+.allTable .LineNightStyle {
+	line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+.allTable .LineZooStyle {
+	line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+.allTable .LineDiversionStyle {
+	line-height: 30px; padding-right: 32px; font-size: 20px; font-weight: bold; float: left;
+}
+.allTable .LineTramStyle {
+	background: url("tram.png") no-repeat right;
+}
+.allTable .LineTrolStyle {
+	background: url("trol.png") no-repeat right;
+}
+.allTable .LineBusStyle {
+	background: url("bus.png") no-repeat right;
+}
+.allTable .LineFreeStyle {
+	background: url("busDisabled.png") no-repeat right;
+}
+.allTable .LineNightStyle {
+	background: url("busNight.png") no-repeat right;
+}
+.allTable .LineZooStyle {
+	background: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/zoo.png") no-repeat right;
+}
+.allTable .LineDiversionStyle {
+	background: url("http://www.cswd.cz/files/pmdp/jizdnirady/css/diversion2.png") no-repeat right;
+}
+div#lineNumber {
+	font-size: 24px; font-weight: bold;
+}
+div#stations {
+	padding-bottom: 20px; float: left; min-width: 200px;
+}
+div#stations table td {
+	line-height: 20px;
+}
+.actual {
+	font-size: 14px; font-weight: bold;
+}
+.normal {
+	font-size: 12px;
+}
+.final {
+	font-size: 14px; font-weight: bold;
+}
+.gray {
+	padding-left: 15px; font-style: italic;
+}
+div#result {
+	width: 100%; float: left; background-color: transparent;
+}
+div#result-workdays {
+	padding: 5px 5px 5px 16px; width: 100%;
+}
+div#result-saturday {
+	padding: 5px 5px 5px 16px; width: 50%; float: left;
+}
+div#result-sunday {
+	padding: 5px 5px 5px 16px; left: 50%; width: 50%; float: left;
+}
+.allResultsTable {
+	width: 100%;
+}
+.allResultsTable td {
+	vertical-align: top;
+}
+.resultTable {
+	border: 1px solid rgb(255, 204, 51); width: 100%; color: rgb(51, 51, 51); font-family: sans-serif; font-size: 12px; border-collapse: collapse; table-layout: auto;
+}
+.resultTable td {
+	padding: 1px; line-height: 16px; font-size: 11px; border-top-color: rgb(255, 204, 51); border-top-width: 1px; border-top-style: solid;
+}
+.resultTable th {
+	padding: 1px; line-height: 16px; font-size: 11px; border-top-color: rgb(255, 204, 51); border-top-width: 1px; border-top-style: solid;
+}
+.resultTable th {
+	text-align: center; background-color: rgb(255, 204, 51);
+}
+.resultTable td img {
+	width: 10px; height: 10px; margin-left: 2px; vertical-align: middle;
+}
+.resultTable td a {
+	
+}
+.workdays {
+	width: 100%;
+}
+.workdays tr {
+	
+}
+.saturday {
+	width: 50%;
+}
+.sunday {
+	width: 50%;
+}
+tr.alternative {
+	background-color: rgb(240, 240, 240);
+}
+.resultTable td.hour {
+	width: 2em; text-align: center; font-weight: bold; border-right-color: rgb(255, 204, 51); border-right-width: 1px; border-right-style: solid; background-color: transparent;
+}
+.resultTable td.normal {
+	width: 1%; padding-left: 5px; white-space: nowrap;
+}
+div.cleaner {
+	clear: both;
+}
+
+div#left_col {
+	display: none;
+}
+div#content_main {
+	width: auto; float: none;
+}

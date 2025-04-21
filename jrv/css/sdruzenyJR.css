@@ -1,0 +1,146 @@
+.tableSdruzenyJR {
+  table-layout:auto;
+  border-collapse: collapse;
+  width: auto;
+  border: none;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 12px;
+}
+.tableZastavkyJR {
+  table-layout:auto;
+  border-collapse: collapse;
+  width: 100%;
+}
+.tableHeaderJR {
+  table-layout:auto;
+  border-collapse: collapse;
+  width: 100%;
+}
+.headerProvozovatel {
+  width:100%;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+}
+.headerPopisLinky {
+  width: 100%;
+  max-width: 1px;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  white-space: normal;
+}
+.headerIDLinky {
+  width:100%;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 18px;
+}
+.headerPlatnost1 {
+  width:auto;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 0px solid black;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 10px;
+  font-weight: bold;
+}
+.headerPlatnost2 {
+  width:auto;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 0px solid black;
+  border-bottom: 1px solid black;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 10px;
+  font-weight: bold;
+}
+.headerMHD {
+  width:100%;
+  border: 1px solid black;
+  background-color: #525252;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+}
+.headerZastavka {
+  width:100%;
+  border: 1px solid black;
+  background-color: #525252;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+}
+.rowspan {
+  width:auto;
+  font-size: 10px;
+  height: 14px;
+  border: 0px none;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  background-color: white;
+}
+.columnJR {
+  min-width:20cm;
+  padding-left: 0px;
+}
+.tableSpoje {
+  table-layout:auto;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid transparent;
+}
+.headerC_SPOJE {
+  background-color: #cbcbcb;
+  color: #000000;
+  font-size: 10px;
+  height: 14px;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+}
+.headerPOZN_SPOJE {
+  background-color: #cbcbcb;
+  color: #000000;
+  font-size: 10px;
+  height: 14px;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+}
+.sudaradka {
+    background-color: #DBDBDB;
+}
+.licharadka {
+    background-color: #FFFFFF;
+}
+.widthc {
+  border: 1px solid transparent;
+  _width: expression("1px");
+}
+.poznamkaZastavky {
+  padding-left: 5px;
+}

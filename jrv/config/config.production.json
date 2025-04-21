@@ -1,0 +1,9 @@
+{
+    "db": {
+        "host": "193.19.176.152",
+        "port": 3306,
+        "db_name": "savvy_mhdspoje",
+        "con_user" : "savvy_mhdspoje",
+        "con_pass" : "V5dArsm2NuNtumCZ"
+    }
+}

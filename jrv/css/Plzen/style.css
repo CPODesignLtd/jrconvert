@@ -1,0 +1,106 @@
+nav.menu {
+    display: block;
+    width: 100%;
+    background: #ffcc33;
+    font-size: 0;
+    cursor: pointer;
+}
+
+nav.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav.menu ul li {
+    width: 100%;    
+}
+
+.active {
+    background-image: url("menu-item.png") !important;
+    background-repeat: repeat-x !important;
+    color: white !important;
+}
+
+nav.menu li:first-child {
+    background-image: none;
+}
+
+nav.menu li {
+/*    height: 52px;*/
+    background-image: url("menu--delim.png"); 
+    background-repeat: no-repeat;
+}
+
+
+nav.menu ul li:hover {
+    background-image: url("menu-item.png");
+    background-repeat: repeat-x;
+}
+
+nav.menu a {
+    display: block;
+    padding: 0 15px;
+    color: #004169;
+    line-height: 2em;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(153, 0, 0);
+}
+
+nav.menu a:hover {
+/*    background: rgba(0, 0, 0, 0.1);*/
+    color: white;
+}
+
+@media (min-width: 600px) {
+
+    nav.menu {
+        background: #ffcc33;
+    }
+
+    nav.menu ul {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav.menu ul li {
+        width: auto;
+        display: inline-block;      
+    }
+    
+    .active {
+        background-image: url("menu-item.png") !important;
+        background-repeat: repeat-x !important;
+        color: white !important;
+    }
+    
+    nav.menu li:first-child {
+        background-image: none;
+    }
+
+    nav.menu li {
+/*        height: 52px;        */
+        background-image: url("menu--delim.png");
+        background-repeat: no-repeat;
+    }   
+    
+    nav.menu a {
+        line-height: 50px;
+        position: relative;
+    }
+
+    nav.menu a:hover::after {
+        content: "";
+        display: block;
+        width: 100%;
+/*        height: 3px;*/
+        background: white;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+    }
+
+}

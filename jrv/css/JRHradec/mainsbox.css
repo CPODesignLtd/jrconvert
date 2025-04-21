@@ -1,0 +1,136 @@
+.menusbox {
+  margin-left: 10px; 
+  margin-right: 0px;
+  margin-bottom: 6px;  
+  padding: 4px 0px 4px 0px;
+  border-bottom-style: dotted; 
+  border-bottom-width: 1px; 
+  border-bottom-color: #000000; 
+  width: auto;  
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 12px;
+  display: block;
+  text-align: left;
+}
+
+.menuli {
+  margin-left: 0px; 
+  margin-right: 0px; 
+  padding-left: 0px;
+  display: inline;  
+  list-style-type: none;  
+  padding-right: 10px;
+  text-align: left;  
+}
+
+.menuli:hover {
+  cursor: pointer;
+}
+
+.textmenu {
+  color: black;
+  cursor: pointer;
+}
+
+.textmenu:hover {
+  color: red;
+  cursor: default;
+}
+
+select {
+  margin: 0px;
+}
+
+.headermain {
+  background-image: url(http://www.mhdspoje.cz/jrw/dpb/headerblavaback.png);
+  background-repeat: repeat-x;
+  height: 122px;
+}
+
+.headerlogo {
+  width: 936px;
+  height: 122px;
+  background-image: url(http://www.mhdspoje.cz/jrw/dpb/headerblava.png);
+}
+
+.headermenu {
+  height: 38px;
+  background-repeat: no-repeat;
+}
+
+.headermenublava {
+  height: 38px;
+  background-image: url(http://www.mhdspoje.cz/jrw/dpb/headermenu.png);
+  background-repeat: repeat-x;
+}
+
+.headermenubottom {
+  height: 35px;
+  background-image: url(http://www.mhdspoje.cz/jrw/dpb/headermenubottom.png);
+  background-repeat: no-repeat;
+}
+
+.searchSBOX {
+  width: 300px;
+  height: 236px;
+  background-repeat: no-repeat;
+  border-collapse: collapse;
+}
+
+.bodymain {
+  width: 936px;  
+  margin: auto;
+  font-size: 12px;
+}
+
+.bodyheader {
+  width: 636px;
+  height: 160px;
+}
+
+.bodytext {
+  width: 936px;
+  margin: auto;
+}
+
+.tabfirst {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.tabsecond {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.jr {
+  margin-left: 20px;
+}
+
+.pokus1{
+  background-color: #00cccc;
+  border-right-width: 10px;
+  border-left-width: 10px;
+  border-right-color: #ff0033;
+  border-left-color: #ff0033;
+  border-left-style: solid;
+  border-right-style: solid;
+}
+
+.logomestoactive {
+  border-width: 3px;
+  border-color: #ff0033;
+}
+.logomestoactive:hover {
+  cursor: pointer;
+}
+
+.logomestoinactive {
+  border-width: 3px;
+  border-color: transparent;
+}
+.logomestoinactive:hover {
+  cursor: pointer;
+}

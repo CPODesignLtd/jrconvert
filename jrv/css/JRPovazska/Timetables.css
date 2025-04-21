@@ -1,0 +1,919 @@
+workspaceFrame .contentwrapper {
+    padding: 0px;
+}
+
+#timetables {
+}
+
+    #timetables .shortcuts li .shortcuts-icon {
+        padding: 20px 0 15px 0;
+    }
+
+    #timetables .widgetcontent {
+        overflow: auto;
+    }
+
+    #timetables .timetable_choices, #timetables .searchingLinkChoices {
+        width: 100%;
+        background: rgb(105, 105, 105);
+        margin-bottom: 20px;
+        padding-bottom: 5px;
+    }
+
+        #timetables .timetable_choices label, #timetables .searchingLinkChoices label {
+            font-size: 15px;
+            color: white;
+        }
+
+    #timetables #lineList_content, #timetables #stationList_content {
+        margin: 20px;
+    }
+
+#dialogstation_map {
+    height: 400px;
+}
+
+#station_map {
+    height: 500px;
+}
+
+#timetables .tablejr, #timetables .tableseznamlinky, #timetables .tableseznamzastavky, #timetables .tableSpojeni, #timetables .tablejrvozak {
+    border: 1px solid rgb(105, 105, 105);
+    border-radius: 4px;
+    border-collapse: collapse;
+    margin: 20px auto 0 auto;
+}
+
+#timetables .tablejr {
+    white-space: nowrap;
+}
+
+.table_JR table {
+    border-collapse: collapse;
+}
+
+.tablejr .table100 {
+    height: 60px;
+/*    border-bottom: 1px solid rgb(105, 105, 105);*/
+    border-collapse: collapse;
+    border-radius: 2px 2px 0px 0px;
+}
+
+    .tablejr .table100:nth-child(n+2) {
+        border-top: 1px solid rgb(105, 105, 105);
+    }
+
+.tablejr > tbody > tr:nth-child(2) > td {
+    padding: 5px;
+}
+
+#timetables .a_nazev_linkyx {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+
+.tablejr .a_smer_linky {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.tablejr .a_smer_linky_label {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 50px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.tablejr .cell_zastavky {
+    vertical-align: top;
+    border-bottom: 0px;
+    border-top: 0px;
+}
+
+.tablejr .cell_casy {
+    width: 100%;
+}
+
+.tablejr .t_in {
+    text-align: left;
+    width: 100%;
+}
+
+.tablejr tr {
+  padding: 0;
+  border: 0px !important;
+}
+
+.table_JR tr {
+  border-bottom: 1px solid #dadada !important;
+}
+
+.div_pozadikomplex table td {
+  padding: 0px 5px 0px 5px  !important;
+}
+
+.a_nazev_linky
+{
+  font-size: 40px !important;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: baseline !important;
+/*  line-height: 0px !important;*/
+}
+
+.td_ram_nobackground {
+    vertical-align: middle  !important;
+}
+
+.tablejr .t_in1 {
+}
+
+.tablejr .t_in2 {
+    width: 20px;
+}
+
+.tablejr .t_in, .tablejr .table_time_JR {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tablejr .table_time_JR tr td {
+  padding: 0px 4px;
+}
+
+
+.tablejr .div_ram {
+    margin: 4px 1px;
+}
+
+.tablejr td img {
+    vertical-align: middle;
+}
+
+#timetables .suda, #timetables .suda_jr, #timetables .suda_focused, #timetables .suda_disabled {
+    background-color: rgb(248, 248, 248);
+}
+
+#timetables .suda_focused, #timetables .licha_focused, #timetables .row_nb_focused {
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(251, 147, 55);
+}
+
+#timetables .suda_disabled, #timetables .licha_disabled {
+    color: silver;
+}
+
+#timetables .div_body_JR {
+    border-bottom: 1px solid rgb(56, 56, 56);
+}
+
+#timetables .div_FS {
+    float: right;
+}
+
+.tablejr .div_FS .a_FS {
+    color: silver;
+}
+
+.tablejr #time_jr:hover, .tablejr #time_jr_active:hover {
+    font-weight: bold;
+    background-color: rgb(226, 226, 226);
+    cursor: pointer;
+}
+
+.tablejr #time_jr_active {
+    font-weight: bold;
+    /*background-color: rgb(147, 255, 135);*/
+}
+
+/*.tablejr .cell_hour_jr {
+    background-color: rgba(140, 214, 91, 0.16);
+}*/
+
+.tablejr .cell_zastavky_pasmo .t_in { /*border-left: 1px solid black;*/
+}
+
+.tablejr .cell_zastavky_pasmo .t_in, .tablejr .cell_zastavky_zastavka .t_in {
+}
+
+.tablejr .cell_zastavky_pasmo:first-child {
+    padding-left: 5px;
+}
+
+.tablejr .pointer_active {
+    background: url(Images/TimetableArrow.png) no-repeat center;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+
+.tablejr .div_ram_transparent {
+    margin: 5px;
+}
+
+#timetables .div_logo_doprava_T {
+    width: 70px;
+    height: 52px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-image: url(http://www.mhdspoje.cz/jrw50/css/JRDecin/image/autobus.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#timetables .div_logo_doprava_O {
+    width: 70px;
+    height: 52px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-image: url(http://www.mhdspoje.cz/jrw50/css/JRDecin/image/trolejbus.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.movediv {
+    display: none;
+}
+
+#timetables .div_ram {
+    background-color: rgb(158, 158, 158);
+    padding: 1px 10px;
+    font-weight: bold;
+}
+
+#timetables .a_nazev_linky1x {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#timetables .td_zastavky {
+    vertical-align: middle;
+    text-align: left !important;
+}
+
+#timetables .a_zastavka_enable {
+    cursor: pointer;
+}
+
+    #timetables .a_zastavka_enable:hover {
+        color: rgb(251, 147, 55);
+    }
+
+#timetables .a_zastavka_disable {
+    color: silver;
+    cursor: default;
+}
+
+#timetables .smer, .td_smer {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+#timetables .tableseznamlinky .td_linka {
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    vertical-align: middle;
+}
+
+#timetables .tableseznamzastavky .td_linka {
+    padding-right: 10px;
+}
+
+#timetables .tableseznamzastavky .td_zastavka {
+    padding-left: 10px;
+    height: 25px;
+}
+
+#timetables .tableseznamzastavky tbody tr * {
+    vertical-align: middle;
+}
+
+#timetables .a_linka {
+    white-space: nowrap;
+    padding: 2px;
+}
+
+    #timetables .a_linka:hover {
+        background-color: rgb(251, 147, 55);
+    }
+
+#timetables .td_kurz {
+    padding: 0 10px;
+}
+
+#timetables .suda .td_kurz {
+    background-color: whitesmoke;
+}
+
+#timetables .tableSpojeni1 {
+    border-bottom: 1px solid silver;
+    width: 100%;
+    padding: 10px;
+    border-spacing: 0;
+}
+
+    #timetables .tableSpojeni1 th {
+        padding: 5px 10px;
+        text-transform: uppercase;
+    }
+
+    #timetables .tableSpojeni1 tbody tr * {
+        vertical-align: middle;
+    }
+
+    #timetables .tableSpojeni1 .td_linka {
+        padding: 10px;
+        text-align: center;
+    }
+
+        #timetables .tableSpojeni1 .td_linka img {
+            float: right;
+            margin: 0 5px;
+        }
+
+#timetables .td_zastaka1, #timetables .td_zastavka2 {
+    padding-right: 10px;
+}
+
+#timetables #searchingLink_shortcut {
+    clear: inherit;
+}
+
+#timetables .tablejrvozak .table_header {
+    height: 60px;
+    border-bottom: 1px solid #ddd;
+    border-collapse: collapse;
+    border-radius: 2px 2px 0 0;
+    width: 100%;
+}
+
+#timetables .tableseznamkurzy {
+    width: 100%;
+}
+
+#timetables #vehicleTimetable_courseSelect {
+    width: 450px;
+    border: 1px solid white;
+}
+
+#timetable_innercontent {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#timetables tr.suda:hover, #timetables tr.licha:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+div.div_logo_doprava_T
+{
+  width: 70px;
+  height: 52px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-image: url(image/autobus.png);
+  background-repeat: no-repeat;
+  float: left;
+  background-position: center center;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+div.div_logo_doprava_O
+{
+  width: 70px;
+  height: 52px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-image: url(image/trolejbus.png);
+  background-repeat: no-repeat;
+  float: left;
+  background-position: center center;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+div.div_logo_doprava_A
+{
+  width: 70px;
+  height: 52px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-image: url(image/tramvaj.png);
+  background-repeat: no-repeat;
+  float: left;
+  background-position: center center;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+table.tablejr {
+/*  border-collapse: collapse;*/
+  /*border: solid;*/
+  border-width: 1px;
+  vertical-align: middle;
+  text-align: left;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  padding: 0px 0px 0px 0px;
+}
+
+table.table_time_JR
+{
+  border-collapse: collapse;
+  display: table;
+  border-spacing: 0px;
+/*  font-family: sans-serif;*/
+  font-size: 12px;
+  width: 100%;
+}
+
+table.table_time_JR tr
+{
+  height: 25px;
+}
+
+td #time_jr
+{
+  font-family: sans-serif;
+  padding-right: 12px;
+  padding-left: 8px;
+}
+
+td #time_jr_active
+{
+  font-family: sans-serif;
+  font-weight: bold;
+  padding-right: 12px;
+  padding-left: 8px;
+  color: white;
+}
+
+
+td #time_jr:hover
+{
+  font-weight: bold;
+  cursor: pointer;
+  padding-right: 12px;
+  padding-left: 8px;
+}
+
+table.t_in
+{
+  /*  border-color: #FFFFFF;
+    border-style: solid none solid solid;
+    border-width: 1px;*/
+  display: table;
+  border-width: 0px;
+  border-collapse: collapse;
+  display: table;
+  border-spacing: 0px;
+/*  font-family: sans-serif;*/
+  font-size: 12px;
+  text-align: left;
+  width: 100%;
+  color: #000000;
+}
+
+table.t_in tr
+{
+  height: 25px;
+}
+
+table.t_in td
+{
+  padding: 0px 6px 0px 6px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+table.t_in1
+{
+  /*  border-color: #FFFFFF;
+    border-style: solid none solid solid;
+    border-width: 1px;*/
+  display: table;
+  border-width: 0px;
+  border-collapse: collapse;
+  display: table;
+  border-spacing: 0px;
+/*  font-family: sans-serif;*/
+  font-size: 12px;
+  text-align: left;
+  color: #000000;
+  width: auto;
+  height: auto;
+/*  border-top: 0px solid !important;*/
+}
+
+table.t_in1 tr
+{
+  max-height: 25px;
+}
+
+table.t_in1 td
+{
+  padding: 0px 5px 0px 5px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+table.t_in2
+{
+  /*  border-color: #FFFFFF;
+    border-style: solid none solid solid;
+    border-width: 1px;*/
+  display: table;
+  border-width: 0px;
+  border-collapse: collapse;
+  display: table;
+  border-spacing: 0px;
+/*  font-family: sans-serif;*/
+  font-size: 12px;
+  text-align: left;
+  color: #000000;
+  width:35px;
+  height: auto;
+}
+
+table.t_in2 tr
+{
+  height: 25px;
+}
+
+table.t_in2 td
+{
+  padding: 0px 5px 0px 5px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+a.a_nazev_linkyx
+{
+  font-size: 40px !important;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
+/*  line-height: 0px !important;*/
+}
+
+a.a_FS {
+  font-size: 8px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+div.div_FS {
+/*  border-top-style: solid;
+  border-top-width: 1px;
+  margin-top: 5px;*/
+  text-align: right;
+}
+
+tr.licha:hover {
+  cursor: pointer;
+/*  color: #fdb913;*/
+  font-family: sans-serif;
+}
+
+tr.suda:hover {
+  cursor: pointer;
+/*  color: #fdb913;*/
+  font-family: sans-serif;
+}
+
+tr.licha {
+  cursor: pointer;
+  font-family: sans-serif;
+}
+
+tr.suda {
+  cursor: pointer;
+  font-family: sans-serif;
+}
+
+tr.licha_disabled
+{
+  color: #808080;
+  font-family: sans-serif;
+}
+
+tr.suda_disabled
+{
+  color: #808080;
+  font-family: sans-serif;
+}
+
+tr.licha_disabled:hover
+{
+  color: #808080;
+  cursor: default;
+  font-family: sans-serif;
+}
+
+tr.suda_disabled:hover
+{
+  color: #808080;
+  cursor: default;
+  font-family: sans-serif;
+}
+
+tr.licha_focused {
+/*  color: #fdb913;*/
+  font-weight: bold;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+tr.suda_focused {
+/*  color: #fdb913;*/
+  font-weight: bold;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+.tableseznamlinky, .tableseznamzastavky {
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+}
+
+.tableseznamlinky tr {
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+}
+
+.tableseznamzastavky tr {
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+}
+
+.a_nazev_linky1 {
+  font-size: 26px;
+  padding-left: 6px;
+  font-weight: bold;
+}
+
+.a_nazev_linky1:hover {
+  font-size: 26px;
+  padding-left: 6px;
+  font-weight: bold;
+}
+
+.a_nazev_linkyx {
+  font-size: 26px;
+  padding-left: 6px;
+  font-weight: bold;
+}
+
+.a_nazev_linkyx:hover {
+  font-size: 26px;
+  padding-left: 6px;
+  font-weight: bold;
+}
+
+.a_zastavka_enable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.a_zastavka_disable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: silver;
+}
+
+.td_zastavka {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: left !important;
+}
+
+ .td_zastavky {
+    vertical-align: middle;
+    text-align: left !important;
+}
+
+.td_linka {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: left !important;
+}
+
+#lhour {
+  opacity: 0.5;
+}
+
+a.nav:hover {
+  cursor: default;
+  text-decoration: none;
+}
+
+#a_nazevzastavky {
+  text-decoration: none;
+  color: black;
+}
+
+#a_nazevzastavky:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#a_nazevzastavkyfocused {
+  cursor: default;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#a_nazevzastavkydisabled {
+  cursor: default;
+  text-decoration: none;
+  font-weight: normal;
+  color: silver;
+}
+
+.label {
+  display: block;
+}
+
+a.popisek {
+/*  font-weight: bold;*/
+  vertical-align: baseline !important;
+  white-space: nowrap !important;
+}
+
+a.popisek:hover {
+/*  font-weight: bold;*/
+  cursor: default;
+  text-decoration: none;
+  vertical-align: baseline !important;
+  white-space: nowrap !important;
+}
+
+.a_pozn_active {
+  color: white;
+}
+
+.tdempty {
+  text-align: left !important;
+}
+
+.td10 {
+  text-align: left !important;
+}
+
+.td6 {
+  text-align: left !important;
+  width: auto;
+}
+
+.td7 {
+  text-align: left !important;
+  width: 100%;
+}
+
+.td8 {
+  text-align: left !important;
+  width: auto;
+}
+
+.td9 {
+  text-align: left !important;
+  width: 100%;
+}
+
+button {
+	padding: 6px 10px;
+	color: #fff;
+	font-size: 100%;
+	font-weight: bold;
+	background-color: #BF0000;
+	border: 1px solid #2a4d82;
+}
+button:hover {
+    /*padding: 6px 0px;*/
+	color: #fff;
+	font-size: 100%;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #880000;
+	border: 1px solid #192f4f;
+}
+
+.background-primary {
+  color: black;
+  background-color: #808080;
+}
+
+.vyber {
+/*  background: #dfdfdf;*/
+border-top: 1px solid #c2c2c2;
+border-right: 1px solid #dfdfdf;
+border-bottom: 1px solid #dfdfdf;
+/*border-bottom: 1px solid #fafafa;*/
+border-left: 1px solid #c2c2c2;
+border-radius: 5px;
+  float: rigth;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+  height: 30px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.o_zastavka {
+  text-align: left !important;
+}
+
+.sp_zastavka {
+  text-align: left !important;
+}
+
+.div_ram {
+  border-bottom: 1px solid #dadada !important;
+}
+
+.table100 {
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+}
+
+.cell_time_jr_zahlavi_active {
+  background-color: #808080;
+  color: white;
+}
+
+.td_time_jr {
+  text-align: left !important;
+}
+
+.t_seznam_zastavka tr {
+  border: 0px !important;
+}
+
+.t_seznam_zastavka td {
+  text-align: left !important;
+  padding-left: 10px !important;
+}
+
+.t_seznam_zastavka td:hover {
+  cursor: pointer;
+}
+
+.imgmap:hover {
+  cursor: pointer;
+}
+
+input.myButton {
+    padding: 6px 10px;
+	color: #fff;
+	font-size: 100%;
+	font-weight: bold;
+	background-color: #BF0000;
+	border: 1px solid #2a4d82;
+}
+
+.a_nazev_linky
+{
+  font-size: 40px !important;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
+/*  line-height: 0px !important;*/
+}
+
+.table_global_poznamky td {
+      border: 0px;
+}
+
+.t_in td {
+      border: 0px;
+}
+
+.t_in1 td {
+      border: 0px;
+}

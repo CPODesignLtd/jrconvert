@@ -1,0 +1,2313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tt4t.cz" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tt4t.cz" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tt4t.cz">
+      <s:element name="GetAvailableTimetables">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cGTParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cGTParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParam" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cServiceParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="dataHash" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="serviceVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="langs" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="langMode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAvailableTimetablesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableTimetablesResult" type="tns:cGTResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cGTResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="combinationsId" type="tns:ArrayOfInt" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cServiceResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="dataHash" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="errorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="executionTime" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="executionMaxMemoryUsed" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="rowID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTimetableInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cGIParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cGIParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamCombination" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cServiceParamCombination">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParam">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="combinationId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="WithDelay" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetTimetableInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTimetableInfoResult" type="tns:cGIResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cGIResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="timetables" type="tns:ArrayOfCGITimetable" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCGITimetable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cGITimetable" nillable="true" type="tns:cGITimetable" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cGITimetable">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="timetableID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="dataHash" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="version" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ident" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="shortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="longName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="isMHD" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="category" type="tns:eGITimetableCategory" />
+          <s:element minOccurs="0" maxOccurs="1" name="timetableValidityFirstDay" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="timetableValidityLastDay" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dataValidityFirstDay" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dataValidityLastDay" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="eGITimetableCategory">
+        <s:restriction base="s:string">
+          <s:enumeration value="Unknown" />
+          <s:enumeration value="City" />
+          <s:enumeration value="Train" />
+          <s:enumeration value="Bus" />
+          <s:enumeration value="Air" />
+          <s:enumeration value="Mixed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetTimetableObjects">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cGOParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cGOParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamCombination" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetTimetableObjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTimetableObjectsResult" type="tns:cGOResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cGOResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="categories" type="tns:ArrayOfCGOCategory" />
+              <s:element minOccurs="1" maxOccurs="1" name="stationCatIndex" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCGOCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cGOCategory" nillable="true" type="tns:cGOCategory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cGOCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="objects" type="tns:ArrayOfCObject" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowInCombo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PriorityIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsZastavka" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cObject" nillable="true" type="tns:cObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cObject">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cPlace">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="obId" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="obName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalSpotId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsRequestStop" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsForDisabled" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cPlace" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="plNotes" type="tns:ArrayOfCNote" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cNote" nillable="true" type="tns:cNote" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ntCat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ntSymbol" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ntText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteMark" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cPosition" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cPlace" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cGpsPos">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cPosition">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="gpLatitude" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="gpLongitude" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cJtskPos">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cPosition">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="jtX" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="jtY" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cStationSpot">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ParentStationId" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cGOStationSpot">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cStationSpot">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="station" type="tns:cGOStation" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cGOStation">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cStation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="stationSpots" type="tns:ArrayOfCGOStationSpot" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cStation">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cObject" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cIPDGOStation">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cStation" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCGOStationSpot">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cGOStationSpot" nillable="true" type="tns:cGOStationSpot" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cIPDGOStationSpot">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cStationSpot">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="stationId" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="IPDGetTimetableObjects">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cIPDGOParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cIPDGOParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamCombination" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="IPDGetTimetableObjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IPDGetTimetableObjectsResult" type="tns:cIPDGOResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cIPDGOResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="categories" type="tns:ArrayOfCIPDGOCategory" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCIPDGOCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cIPDGOCategory" nillable="true" type="tns:cIPDGOCategory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cIPDGOCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="objects" type="tns:ArrayOfCObject" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cIPDGOStationSpotCategory">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cIPDGOCategory" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cIPDGOStationCategory">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cIPDGOCategory" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetConnectionCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cGCParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cGCParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamCombination" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetConnectionCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConnectionCategoriesResult" type="tns:cGCResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cGCResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="conCategoriesList" type="tns:ArrayOfCGCElement" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCGCElement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cGCElement" nillable="true" type="tns:cGCElement" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cGCElement">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="timetableCategory" type="tns:eGITimetableCategory" />
+          <s:element minOccurs="0" maxOccurs="1" name="conCategories" type="tns:ArrayOfCConnectionCat" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCConnectionCat">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cConnectionCat" nillable="true" type="tns:cConnectionCat" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cConnectionCat">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ccId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ccShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ccLongName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchConnection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cSCParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cSCParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamCombination">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="plFrom" type="tns:ArrayOfCSCPlace" />
+              <s:element minOccurs="0" maxOccurs="1" name="plTo" type="tns:ArrayOfCSCPlace" />
+              <s:element minOccurs="0" maxOccurs="1" name="plOver" type="tns:ArrayOfCSCPlace" />
+              <s:element minOccurs="0" maxOccurs="1" name="dateTime" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="useDepartureTime" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="maxChangesCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="minChangeTime" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="maxChangeTime" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="maxTransferLength" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="maxStationDistance" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="averageSpeed" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="deniedConCategories" type="tns:ArrayOfInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="forDisabledOnly" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="moreResults" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCSCPlace">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cSCPlace" nillable="true" type="tns:cSCPlace" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cSCPlace" abstract="true" />
+      <s:complexType name="cSCPosition" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cSCPlace" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cSCGpsPos">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cSCPosition">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="gpLatitude" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="gpLongitude" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cSCJtskPos">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cSCPosition">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="jtX" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="jtY" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cSCObject">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cSCPlace">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SearchConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchConnectionResult" type="tns:cSCResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cSCResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="fullConnections" type="tns:ArrayOfCSCFullConnection" />
+              <s:element minOccurs="0" maxOccurs="1" name="firstDeparture" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="lastArrival" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCSCFullConnection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cSCFullConnection" nillable="true" type="tns:cSCFullConnection" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cSCFullConnection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="connections" type="tns:ArrayOfCSCBaseConElement" />
+          <s:element minOccurs="1" maxOccurs="1" name="meters" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="duration" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="notes" type="tns:ArrayOfCNote" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCSCBaseConElement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cSCBaseConElement" nillable="true" type="tns:cSCBaseConElement" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cSCBaseConElement" abstract="true" />
+      <s:complexType name="cSCTransferEdge">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cSCBaseConElement">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="inPlace" type="tns:cPlace" />
+              <s:element minOccurs="0" maxOccurs="1" name="outPlace" type="tns:cPlace" />
+              <s:element minOccurs="1" maxOccurs="1" name="meters" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="duration" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cSCConnection">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cSCBaseConElement">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="inStationSpot" type="tns:cStationSpot" />
+              <s:element minOccurs="1" maxOccurs="1" name="inIndex" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="inDateTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="inThroughNotes" type="tns:ArrayOfCNote" />
+              <s:element minOccurs="0" maxOccurs="1" name="inStZone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="outStationSpot" type="tns:cStationSpot" />
+              <s:element minOccurs="1" maxOccurs="1" name="outIndex" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="outDateTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="outThroughNotes" type="tns:ArrayOfCNote" />
+              <s:element minOccurs="0" maxOccurs="1" name="outStZone" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="meters" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="duration" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="connection" type="tns:cConnection" />
+              <s:element minOccurs="1" maxOccurs="1" name="Delay" nillable="true" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cConnection">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="conId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="conLine" type="tns:cLine" />
+          <s:element minOccurs="0" maxOccurs="1" name="conText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="conNotes" type="tns:ArrayOfCNote" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cLine">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="lnId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="lnCat" type="tns:cConnectionCat" />
+          <s:element minOccurs="0" maxOccurs="1" name="lnNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextNote" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AcceptedValidity" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ViewConnectionInfo1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cVC1Param" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cVC1Param">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamTimetable">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="connectionName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="lineId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="noDateRestrictions" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cServiceParamTimetable">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParam">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="timetableId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="WithDelay" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ViewConnectionInfo1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ViewConnectionInfo1Result" type="tns:cVC1Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cVC1Result">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="lineList" type="tns:cGLResult" />
+              <s:element minOccurs="0" maxOccurs="1" name="connectionList" type="tns:cGNResult" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cGLResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="lines" type="tns:ArrayOfCLine" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cLine" nillable="true" type="tns:cLine" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cGNResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="connections" type="tns:ArrayOfCGNConnection" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCGNConnection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cGNConnection" nillable="true" type="tns:cGNConnection" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cGNConnection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="connection" type="tns:cConnection" />
+          <s:element minOccurs="0" maxOccurs="1" name="firstStationSpot" type="tns:cStationSpot" />
+          <s:element minOccurs="0" maxOccurs="1" name="firstRelDateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastStationSpot" type="tns:cStationSpot" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastRelDateTime" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ViewConnectionInfo2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cVC2Param" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cVC2Param">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamCombination">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="connectionId" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ViewConnectionInfo2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ViewConnectionInfo2Result" type="tns:cVC2Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cVC2Result">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="connection" type="tns:cConnection" />
+              <s:element minOccurs="0" maxOccurs="1" name="connectionElements" type="tns:ArrayOfCVC2Element" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCVC2Element">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cVC2Element" nillable="true" type="tns:cVC2Element" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cVC2Element">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="stationSpot" type="tns:cStationSpot" />
+          <s:element minOccurs="0" maxOccurs="1" name="throughNotes" type="tns:ArrayOfCNote" />
+          <s:element minOccurs="0" maxOccurs="1" name="inRelDateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="outRelDateTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="meters" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="stZone" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConnectionInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cCIParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cCIParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamCombination">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="connectionId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="dpIndex" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="arIndex" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ConnectionInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConnectionInfoResult" type="tns:cCIResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cCIResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="con" type="tns:cConnection" />
+              <s:element minOccurs="0" maxOccurs="1" name="inStationSpot" type="tns:cStationSpot" />
+              <s:element minOccurs="0" maxOccurs="1" name="inRelDateTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="inThroughNotes" type="tns:ArrayOfCNote" />
+              <s:element minOccurs="0" maxOccurs="1" name="inStZone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="outStationSpot" type="tns:cStationSpot" />
+              <s:element minOccurs="0" maxOccurs="1" name="outRelDateTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="outThroughNotes" type="tns:ArrayOfCNote" />
+              <s:element minOccurs="0" maxOccurs="1" name="outStZone" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="duration" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="meters" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetLines">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cGLParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cGLParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamTimetable">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="connectionName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="noDateRestrictions" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetLinesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLinesResult" type="tns:cGLResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConnections">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cGNParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cGNParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamTimetable">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="connectionName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="lineId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="noDateRestrictions" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetConnectionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConnectionsResult" type="tns:cGNResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StationTimeTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cSTParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cSTParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamTimetable">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="line" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="lineId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="plFrom" type="tns:cSTPlace" />
+              <s:element minOccurs="0" maxOccurs="1" name="plTo" type="tns:cSTPlace" />
+              <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="dateTo" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="entireWeek" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cSTPlace" abstract="true" />
+      <s:complexType name="cSTObject">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cSTPlace">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cSTStation">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cSTObject" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cSTStationSpot">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cSTObject" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cSTStationLine">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cSTPlace">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="station" type="tns:cSTStationSpot" />
+              <s:element minOccurs="1" maxOccurs="1" name="index" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="StationTimeTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StationTimeTableResult" type="tns:cSTResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cSTResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="specification" type="tns:cSTSpecification" />
+              <s:element minOccurs="0" maxOccurs="1" name="result" type="tns:cSTTimeTable" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cSTSpecification">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="line" type="tns:ArrayOfCLine" />
+              <s:element minOccurs="0" maxOccurs="1" name="from" type="tns:ArrayOfCSTObjectWithDirection" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCSTObjectWithDirection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cSTObjectWithDirection" nillable="true" type="tns:cSTObjectWithDirection" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cSTObjectWithDirection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="station" type="tns:cStation" />
+          <s:element minOccurs="0" maxOccurs="1" name="directions" type="tns:ArrayOfCStation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCStation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cStation" nillable="true" type="tns:cStation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cSTTimeTable">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="stations" type="tns:ArrayOfCSTRouteElement" />
+              <s:element minOccurs="0" maxOccurs="1" name="dates" type="tns:ArrayOfCSTDate" />
+              <s:element minOccurs="0" maxOccurs="1" name="otherNotes" type="tns:ArrayOfCNote" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCSTRouteElement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cSTRouteElement" nillable="true" type="tns:cSTRouteElement" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cSTRouteElement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="station" type="tns:cSTRouteStation" />
+          <s:element minOccurs="1" maxOccurs="1" name="minute" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="meter" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:WebTransitType" />
+          <s:element minOccurs="0" maxOccurs="1" name="TariffZone" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cSTRouteStation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="stationSpot" type="tns:cStationSpot" />
+          <s:element minOccurs="0" maxOccurs="1" name="oppositeStationSpot" type="tns:cStationSpot" />
+          <s:element minOccurs="1" maxOccurs="1" name="index" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="oppositeIndex" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="WebTransitType">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="ShowNormal" />
+              <s:enumeration value="NotShow" />
+              <s:enumeration value="Final" />
+              <s:enumeration value="Gray" />
+              <s:enumeration value="WithAnchor" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:complexType name="ArrayOfCSTDate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cSTDate" nillable="true" type="tns:cSTDate" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cSTDate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="caption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="notes" type="tns:ArrayOfCNote" />
+          <s:element minOccurs="0" maxOccurs="1" name="timeTable" type="tns:ArrayOfArrayOfCSTMinute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfArrayOfCSTMinute">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfCSTMinute" nillable="true" type="tns:ArrayOfCSTMinute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCSTMinute">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cSTMinute" nillable="true" type="tns:cSTMinute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cSTMinute">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="con" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="min" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="index" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="rtNotes" type="tns:ArrayOfInt" />
+          <s:element minOccurs="0" maxOccurs="1" name="cNotes" type="tns:ArrayOfCNote" />
+          <s:element minOccurs="0" maxOccurs="1" name="CisloKurzu" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StationTimeTableDZJR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cSTParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StationTimeTableDZJRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StationTimeTableDZJRResult" type="tns:cSTResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregatedTimetable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cATParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cATParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamCombination">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="plFrom" type="tns:ArrayOfCATPlace" />
+              <s:element minOccurs="0" maxOccurs="1" name="plTo" type="tns:ArrayOfCATPlace" />
+              <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="deniedConCategories" type="tns:ArrayOfInt" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCATPlace">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cATPlace" nillable="true" type="tns:cATPlace" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cATPlace" abstract="true" />
+      <s:complexType name="cATObject">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cATPlace">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cATPosition" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cATPlace" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cATJtskPos">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cATPosition">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="jtX" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="jtY" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cATGpsPos">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cATPosition">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="gpLatitude" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="gpLongitude" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="AgregatedTimetableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AgregatedTimetableResult" type="tns:cATResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cATResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="result" type="tns:ArrayOfArrayOfCATMinute" />
+              <s:element minOccurs="0" maxOccurs="1" name="details" type="tns:ArrayOfCATConDetail" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfArrayOfCATMinute">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfCATMinute" nillable="true" type="tns:ArrayOfCATMinute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCATMinute">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cATMinute" nillable="true" type="tns:cATMinute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cATMinute">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="con" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="inIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="outIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="min" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="detIndex" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CourseName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Delay" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCATConDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cATConDetail" nillable="true" type="tns:cATConDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cATConDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="line" type="tns:cLine" />
+          <s:element minOccurs="0" maxOccurs="1" name="inStationSpot" type="tns:cStationSpot" />
+          <s:element minOccurs="0" maxOccurs="1" name="outStationSpot" type="tns:cStationSpot" />
+          <s:element minOccurs="1" maxOccurs="1" name="duration" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="meters" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSCParam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSCParamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSCParamResult" type="tns:cSCParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetATParam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetATParamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetATParamResult" type="tns:cATParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWhispererItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cWParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cWParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamCombination">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Input" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Categories" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetWhispererItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWhispererItemsResult" type="tns:cWResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cWResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfString" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetWhispererObjects">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cWIDParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cWIDParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamCombination">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Input" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Categories" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetWhispererObjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWhispererObjectsResult" type="tns:cWIDResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cWIDResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfString" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetWhispererTTItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cWTTParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cWTTParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamTimetable">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Input" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Categories" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetWhispererTTItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWhispererTTItemsResult" type="tns:cWTTResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cWTTResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfString" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetWhispererTTObjects">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cWIDTTParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cWIDTTParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamTimetable">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Input" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Categories" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetWhispererTTObjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWhispererTTObjectsResult" type="tns:cWIDTTResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cWIDTTResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfString" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetWhispererLineItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cWLineParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cWLineParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamTimetable">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="LineId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Input" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Categories" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetWhispererLineItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWhispererLineItemsResult" type="tns:cWTTResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeparturesFromStation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:cDSParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cDSParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamCombination">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="place" type="tns:cDSPlace" />
+              <s:element minOccurs="0" maxOccurs="1" name="dateTime" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="arrivals" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="deniedConCategories" type="tns:ArrayOfInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="maxConnections" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="timeInterval" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Direction" type="tns:cDSPlace" />
+              <s:element minOccurs="0" maxOccurs="1" name="Places" type="tns:ArrayOfCDSPlace" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="cDSPlace" abstract="true" />
+      <s:complexType name="cDSObject">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cDSPlace">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCDSPlace">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cDSPlace" nillable="true" type="tns:cDSPlace" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeparturesFromStationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeparturesFromStationResult" type="tns:cDSResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cDSResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="connections" type="tns:ArrayOfCDSConnection" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCDSConnection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cDSConnection" nillable="true" type="tns:cDSConnection" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cDSConnection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="con" type="tns:cConnection" />
+          <s:element minOccurs="1" maxOccurs="1" name="index" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="dateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="stationSpot" type="tns:cStationSpot" />
+          <s:element minOccurs="0" maxOccurs="1" name="throughNotes" type="tns:ArrayOfCNote" />
+          <s:element minOccurs="0" maxOccurs="1" name="stZone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="headStationSpot" type="tns:cStationSpot" />
+          <s:element minOccurs="1" maxOccurs="1" name="delay" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessDelayMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="timetableId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="combinationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDelayMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessDelayMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetObjectWithOriginalId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:GetObjectWithOriginalIdParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetObjectWithOriginalIdParam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceParamTimetable">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalSpotNumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetObjectWithOriginalIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetObjectWithOriginalIdResult" type="tns:GetObjectWithOriginalIdResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetObjectWithOriginalIdResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:cServiceResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Objects" type="tns:ArrayOfCObject" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetLinesListRecordsPMDP">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLinesListRecordsPMDPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLinesListRecordsPMDPResult" type="tns:ArrayOfLinesListRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLinesListRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LinesListRecord" nillable="true" type="tns:LinesListRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LinesListRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LineName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLineVariantsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lineName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLineVariantsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLineVariantsInfoResult" type="tns:ArrayOfLineVariantInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLineVariantInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LineVariantInfo" nillable="true" type="tns:LineVariantInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LineVariantInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AcceptedValidityEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcceptedValidityStart" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsException" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RouteEnd" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="RouteStart" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShowEndDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShowStartDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineVariantNote" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStationsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="combinationID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStationsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStationsInfoResult" type="tns:ArrayOfStationInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStationInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StationInfo" nillable="true" type="tns:StationInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StationInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Lines" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Passport" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStationListRecords">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStationListRecordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStationListRecordsResult" type="tns:ArrayOfStationsListRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStationsListRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StationsListRecord" nillable="true" type="tns:StationsListRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StationsListRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pasport" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinalStation" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PointId" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAvailableTimetablesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableTimetables" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableTimetablesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableTimetablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTimetableInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTimetableInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetTimetableInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTimetableInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTimetableObjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTimetableObjects" />
+  </wsdl:message>
+  <wsdl:message name="GetTimetableObjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTimetableObjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPDGetTimetableObjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:IPDGetTimetableObjects" />
+  </wsdl:message>
+  <wsdl:message name="IPDGetTimetableObjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:IPDGetTimetableObjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConnectionCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConnectionCategories" />
+  </wsdl:message>
+  <wsdl:message name="GetConnectionCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConnectionCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchConnection" />
+  </wsdl:message>
+  <wsdl:message name="SearchConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ViewConnectionInfo1SoapIn">
+    <wsdl:part name="parameters" element="tns:ViewConnectionInfo1" />
+  </wsdl:message>
+  <wsdl:message name="ViewConnectionInfo1SoapOut">
+    <wsdl:part name="parameters" element="tns:ViewConnectionInfo1Response" />
+  </wsdl:message>
+  <wsdl:message name="ViewConnectionInfo2SoapIn">
+    <wsdl:part name="parameters" element="tns:ViewConnectionInfo2" />
+  </wsdl:message>
+  <wsdl:message name="ViewConnectionInfo2SoapOut">
+    <wsdl:part name="parameters" element="tns:ViewConnectionInfo2Response" />
+  </wsdl:message>
+  <wsdl:message name="ConnectionInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConnectionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ConnectionInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConnectionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLinesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLines" />
+  </wsdl:message>
+  <wsdl:message name="GetLinesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConnectionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConnections" />
+  </wsdl:message>
+  <wsdl:message name="GetConnectionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConnectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="StationTimeTableSoapIn">
+    <wsdl:part name="parameters" element="tns:StationTimeTable" />
+  </wsdl:message>
+  <wsdl:message name="StationTimeTableSoapOut">
+    <wsdl:part name="parameters" element="tns:StationTimeTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="StationTimeTableDZJRSoapIn">
+    <wsdl:part name="parameters" element="tns:StationTimeTableDZJR" />
+  </wsdl:message>
+  <wsdl:message name="StationTimeTableDZJRSoapOut">
+    <wsdl:part name="parameters" element="tns:StationTimeTableDZJRResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregatedTimetableSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregatedTimetable" />
+  </wsdl:message>
+  <wsdl:message name="AgregatedTimetableSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregatedTimetableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSCParamSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSCParam" />
+  </wsdl:message>
+  <wsdl:message name="GetSCParamSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSCParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetATParamSoapIn">
+    <wsdl:part name="parameters" element="tns:GetATParam" />
+  </wsdl:message>
+  <wsdl:message name="GetATParamSoapOut">
+    <wsdl:part name="parameters" element="tns:GetATParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWhispererItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWhispererItems" />
+  </wsdl:message>
+  <wsdl:message name="GetWhispererItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWhispererItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWhispererObjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWhispererObjects" />
+  </wsdl:message>
+  <wsdl:message name="GetWhispererObjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWhispererObjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWhispererTTItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWhispererTTItems" />
+  </wsdl:message>
+  <wsdl:message name="GetWhispererTTItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWhispererTTItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWhispererTTObjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWhispererTTObjects" />
+  </wsdl:message>
+  <wsdl:message name="GetWhispererTTObjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWhispererTTObjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWhispererLineItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWhispererLineItems" />
+  </wsdl:message>
+  <wsdl:message name="GetWhispererLineItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWhispererLineItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeparturesFromStationSoapIn">
+    <wsdl:part name="parameters" element="tns:DeparturesFromStation" />
+  </wsdl:message>
+  <wsdl:message name="DeparturesFromStationSoapOut">
+    <wsdl:part name="parameters" element="tns:DeparturesFromStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDelayMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessDelayMessage" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDelayMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDelayMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetObjectWithOriginalIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetObjectWithOriginalId" />
+  </wsdl:message>
+  <wsdl:message name="GetObjectWithOriginalIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetObjectWithOriginalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLinesListRecordsPMDPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLinesListRecordsPMDP" />
+  </wsdl:message>
+  <wsdl:message name="GetLinesListRecordsPMDPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLinesListRecordsPMDPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLineVariantsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLineVariantsInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetLineVariantsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLineVariantsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStationsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStationsInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetStationsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStationsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStationListRecordsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStationListRecords" />
+  </wsdl:message>
+  <wsdl:message name="GetStationListRecordsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStationListRecordsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="cVyhledavacServiceSoap">
+    <wsdl:operation name="GetAvailableTimetables">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ziskani id radu dostupnych na serveru</wsdl:documentation>
+      <wsdl:input message="tns:GetAvailableTimetablesSoapIn" />
+      <wsdl:output message="tns:GetAvailableTimetablesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTimetableInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ziskani informaci o danem jizdnim radu</wsdl:documentation>
+      <wsdl:input message="tns:GetTimetableInfoSoapIn" />
+      <wsdl:output message="tns:GetTimetableInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTimetableObjects">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ziskani objektu daneho jizdniho radu</wsdl:documentation>
+      <wsdl:input message="tns:GetTimetableObjectsSoapIn" />
+      <wsdl:output message="tns:GetTimetableObjectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IPDGetTimetableObjects">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ziskani IPD objektu daneho jizdniho radu</wsdl:documentation>
+      <wsdl:input message="tns:IPDGetTimetableObjectsSoapIn" />
+      <wsdl:output message="tns:IPDGetTimetableObjectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectionCategories">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Zjisteni druhu dopravnich prostredku v danem jizdnim radu.</wsdl:documentation>
+      <wsdl:input message="tns:GetConnectionCategoriesSoapIn" />
+      <wsdl:output message="tns:GetConnectionCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchConnection">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Vyhledavani spojeni.</wsdl:documentation>
+      <wsdl:input message="tns:SearchConnectionSoapIn" />
+      <wsdl:output message="tns:SearchConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewConnectionInfo1">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Vypis informaci o spoji.</wsdl:documentation>
+      <wsdl:input message="tns:ViewConnectionInfo1SoapIn" />
+      <wsdl:output message="tns:ViewConnectionInfo1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewConnectionInfo2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Vypis informaci o spoji.</wsdl:documentation>
+      <wsdl:input message="tns:ViewConnectionInfo2SoapIn" />
+      <wsdl:output message="tns:ViewConnectionInfo2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConnectionInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Info o spoji</wsdl:documentation>
+      <wsdl:input message="tns:ConnectionInfoSoapIn" />
+      <wsdl:output message="tns:ConnectionInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLines">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Získání linek podle masky</wsdl:documentation>
+      <wsdl:input message="tns:GetLinesSoapIn" />
+      <wsdl:output message="tns:GetLinesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConnections">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Získání spojů podle masky</wsdl:documentation>
+      <wsdl:input message="tns:GetConnectionsSoapIn" />
+      <wsdl:output message="tns:GetConnectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StationTimeTable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Zastavkovy jizdni rad.</wsdl:documentation>
+      <wsdl:input message="tns:StationTimeTableSoapIn" />
+      <wsdl:output message="tns:StationTimeTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StationTimeTableDZJR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Zastavkovy jizdni rad.</wsdl:documentation>
+      <wsdl:input message="tns:StationTimeTableDZJRSoapIn" />
+      <wsdl:output message="tns:StationTimeTableDZJRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregatedTimetable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sdruzeny jizdni rad.</wsdl:documentation>
+      <wsdl:input message="tns:AgregatedTimetableSoapIn" />
+      <wsdl:output message="tns:AgregatedTimetableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSCParam">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Získání cSCParam z databáze logů podle ID</wsdl:documentation>
+      <wsdl:input message="tns:GetSCParamSoapIn" />
+      <wsdl:output message="tns:GetSCParamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetATParam">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Získání cSCParam z databáze logů podle ID</wsdl:documentation>
+      <wsdl:input message="tns:GetATParamSoapIn" />
+      <wsdl:output message="tns:GetATParamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererItems">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Vrácení názvů objektů z našeptávače.</wsdl:documentation>
+      <wsdl:input message="tns:GetWhispererItemsSoapIn" />
+      <wsdl:output message="tns:GetWhispererItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererObjects">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Vrácení ID objektů z našeptávače.</wsdl:documentation>
+      <wsdl:input message="tns:GetWhispererObjectsSoapIn" />
+      <wsdl:output message="tns:GetWhispererObjectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererTTItems">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Vrácení názvů objektů z našeptávače pro určený JŘ.</wsdl:documentation>
+      <wsdl:input message="tns:GetWhispererTTItemsSoapIn" />
+      <wsdl:output message="tns:GetWhispererTTItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererTTObjects">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Vrácení ID objektů z našeptávače pro určený JŘ.</wsdl:documentation>
+      <wsdl:input message="tns:GetWhispererTTObjectsSoapIn" />
+      <wsdl:output message="tns:GetWhispererTTObjectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererLineItems">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Vrácení názvů objektů z našeptávače pro určený ZJŘ, pro danou linku.</wsdl:documentation>
+      <wsdl:input message="tns:GetWhispererLineItemsSoapIn" />
+      <wsdl:output message="tns:GetWhispererLineItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeparturesFromStation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metoda vyhledá a vrátí spoje, které odjíždějí z požadované zastávky od zadaného času.</wsdl:documentation>
+      <wsdl:input message="tns:DeparturesFromStationSoapIn" />
+      <wsdl:output message="tns:DeparturesFromStationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDelayMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metoda zpracuje informace o zpoždění.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessDelayMessageSoapIn" />
+      <wsdl:output message="tns:ProcessDelayMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectWithOriginalId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Podle zadaného originálního id najde a vrátí objekt.</wsdl:documentation>
+      <wsdl:input message="tns:GetObjectWithOriginalIdSoapIn" />
+      <wsdl:output message="tns:GetObjectWithOriginalIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinesListRecordsPMDP">
+      <wsdl:input message="tns:GetLinesListRecordsPMDPSoapIn" />
+      <wsdl:output message="tns:GetLinesListRecordsPMDPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLineVariantsInfo">
+      <wsdl:input message="tns:GetLineVariantsInfoSoapIn" />
+      <wsdl:output message="tns:GetLineVariantsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStationsInfo">
+      <wsdl:input message="tns:GetStationsInfoSoapIn" />
+      <wsdl:output message="tns:GetStationsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStationListRecords">
+      <wsdl:input message="tns:GetStationListRecordsSoapIn" />
+      <wsdl:output message="tns:GetStationListRecordsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="cVyhledavacServiceSoap" type="tns:cVyhledavacServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAvailableTimetables">
+      <soap:operation soapAction="http://tt4t.cz/GetAvailableTimetables" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimetableInfo">
+      <soap:operation soapAction="http://tt4t.cz/GetTimetableInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimetableObjects">
+      <soap:operation soapAction="http://tt4t.cz/GetTimetableObjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IPDGetTimetableObjects">
+      <soap:operation soapAction="http://tt4t.cz/IPDGetTimetableObjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectionCategories">
+      <soap:operation soapAction="http://tt4t.cz/GetConnectionCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchConnection">
+      <soap:operation soapAction="http://tt4t.cz/SearchConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewConnectionInfo1">
+      <soap:operation soapAction="http://tt4t.cz/ViewConnectionInfo1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewConnectionInfo2">
+      <soap:operation soapAction="http://tt4t.cz/ViewConnectionInfo2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectionInfo">
+      <soap:operation soapAction="http://tt4t.cz/ConnectionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLines">
+      <soap:operation soapAction="http://tt4t.cz/GetLines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnections">
+      <soap:operation soapAction="http://tt4t.cz/GetConnections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StationTimeTable">
+      <soap:operation soapAction="http://tt4t.cz/StationTimeTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StationTimeTableDZJR">
+      <soap:operation soapAction="http://tt4t.cz/StationTimeTableDZJR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregatedTimetable">
+      <soap:operation soapAction="http://tt4t.cz/AgregatedTimetable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSCParam">
+      <soap:operation soapAction="http://tt4t.cz/GetSCParam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetATParam">
+      <soap:operation soapAction="http://tt4t.cz/GetATParam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererItems">
+      <soap:operation soapAction="http://tt4t.cz/GetWhispererItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererObjects">
+      <soap:operation soapAction="http://tt4t.cz/GetWhispererObjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererTTItems">
+      <soap:operation soapAction="http://tt4t.cz/GetWhispererTTItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererTTObjects">
+      <soap:operation soapAction="http://tt4t.cz/GetWhispererTTObjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererLineItems">
+      <soap:operation soapAction="http://tt4t.cz/GetWhispererLineItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeparturesFromStation">
+      <soap:operation soapAction="http://tt4t.cz/DeparturesFromStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDelayMessage">
+      <soap:operation soapAction="http://tt4t.cz/ProcessDelayMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectWithOriginalId">
+      <soap:operation soapAction="http://tt4t.cz/GetObjectWithOriginalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinesListRecordsPMDP">
+      <soap:operation soapAction="http://tt4t.cz/GetLinesListRecordsPMDP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLineVariantsInfo">
+      <soap:operation soapAction="http://tt4t.cz/GetLineVariantsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStationsInfo">
+      <soap:operation soapAction="http://tt4t.cz/GetStationsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStationListRecords">
+      <soap:operation soapAction="http://tt4t.cz/GetStationListRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="cVyhledavacServiceSoap12" type="tns:cVyhledavacServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAvailableTimetables">
+      <soap12:operation soapAction="http://tt4t.cz/GetAvailableTimetables" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimetableInfo">
+      <soap12:operation soapAction="http://tt4t.cz/GetTimetableInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimetableObjects">
+      <soap12:operation soapAction="http://tt4t.cz/GetTimetableObjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IPDGetTimetableObjects">
+      <soap12:operation soapAction="http://tt4t.cz/IPDGetTimetableObjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectionCategories">
+      <soap12:operation soapAction="http://tt4t.cz/GetConnectionCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchConnection">
+      <soap12:operation soapAction="http://tt4t.cz/SearchConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewConnectionInfo1">
+      <soap12:operation soapAction="http://tt4t.cz/ViewConnectionInfo1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewConnectionInfo2">
+      <soap12:operation soapAction="http://tt4t.cz/ViewConnectionInfo2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectionInfo">
+      <soap12:operation soapAction="http://tt4t.cz/ConnectionInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLines">
+      <soap12:operation soapAction="http://tt4t.cz/GetLines" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnections">
+      <soap12:operation soapAction="http://tt4t.cz/GetConnections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StationTimeTable">
+      <soap12:operation soapAction="http://tt4t.cz/StationTimeTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StationTimeTableDZJR">
+      <soap12:operation soapAction="http://tt4t.cz/StationTimeTableDZJR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregatedTimetable">
+      <soap12:operation soapAction="http://tt4t.cz/AgregatedTimetable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSCParam">
+      <soap12:operation soapAction="http://tt4t.cz/GetSCParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetATParam">
+      <soap12:operation soapAction="http://tt4t.cz/GetATParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererItems">
+      <soap12:operation soapAction="http://tt4t.cz/GetWhispererItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererObjects">
+      <soap12:operation soapAction="http://tt4t.cz/GetWhispererObjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererTTItems">
+      <soap12:operation soapAction="http://tt4t.cz/GetWhispererTTItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererTTObjects">
+      <soap12:operation soapAction="http://tt4t.cz/GetWhispererTTObjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWhispererLineItems">
+      <soap12:operation soapAction="http://tt4t.cz/GetWhispererLineItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeparturesFromStation">
+      <soap12:operation soapAction="http://tt4t.cz/DeparturesFromStation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDelayMessage">
+      <soap12:operation soapAction="http://tt4t.cz/ProcessDelayMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectWithOriginalId">
+      <soap12:operation soapAction="http://tt4t.cz/GetObjectWithOriginalId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinesListRecordsPMDP">
+      <soap12:operation soapAction="http://tt4t.cz/GetLinesListRecordsPMDP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLineVariantsInfo">
+      <soap12:operation soapAction="http://tt4t.cz/GetLineVariantsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStationsInfo">
+      <soap12:operation soapAction="http://tt4t.cz/GetStationsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStationListRecords">
+      <soap12:operation soapAction="http://tt4t.cz/GetStationListRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="cVyhledavacService">
+    <wsdl:port name="cVyhledavacServiceSoap" binding="tns:cVyhledavacServiceSoap">
+      <soap:address location="http://jizdnirady.pmdp.cz:22223/VyhledavacService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="cVyhledavacServiceSoap12" binding="tns:cVyhledavacServiceSoap12">
+      <soap12:address location="http://jizdnirady.pmdp.cz:22223/VyhledavacService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
